@@ -1099,47 +1099,6 @@ export default function App() {
       </section>
 
       {/* ==========================================
-          READY TO PUBLISH YOUR RESEARCH? (PRE-FOOTER CTA)
-          (Directly from attached reference design)
-      =========================================== */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <div className="bg-[#0c1c38] text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-[#1b345f]">
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 rounded-xl bg-blue-600/30 border border-blue-400/30 flex items-center justify-center text-white flex-shrink-0">
-              <Mail className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white">Ready to Publish Your Research?</h3>
-              <p className="text-xs text-stone-300 mt-0.5">Get a free consultation and customized quote for your project.</p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <a 
-              href="#contact" 
-              className="bg-white hover:bg-stone-100 text-gray-900 font-extrabold text-xs px-5 py-2.5 rounded-lg shadow transition whitespace-nowrap"
-            >
-              Contact Us
-            </a>
-            <a 
-              href="mailto:info@rubrixx.com" 
-              className="flex items-center space-x-1.5 text-xs text-stone-300 hover:text-[#ffcc00] transition"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>info@rubrixx.com</span>
-            </a>
-            <a 
-              href="tel:+918087579068" 
-              className="flex items-center space-x-1.5 text-xs text-stone-300 hover:text-[#ffcc00] transition"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>+91 80875 79068</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* ==========================================
           CONTACT SECTION: "Ready To Get Started ?"
           (Exact recreation from Screenshot 1!)
       =========================================== */}
