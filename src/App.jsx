@@ -28,7 +28,7 @@ export default function App() {
       badge: 'Writing & Structuring',
       badgeColor: 'text-[#611b45] bg-pink-50',
       title: 'Full Manuscript Development',
-      image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=700',
+      image: '/assets/images/manuscript-writing.jpg',
       description: 'Comprehensive support from research concept to a publication-ready manuscript, structuring your core data, algorithms, and findings.',
       features: [
         'Structure & novelty formulation',
@@ -43,7 +43,7 @@ export default function App() {
       badge: 'Literature Synthesis',
       badgeColor: 'text-[#ea580c] bg-orange-50',
       title: 'Review Article Development',
-      image: 'https://images.unsplash.com/photo-1507842229451-7f01be7ff612?auto=format&fit=crop&q=80&w=700',
+      image: '/assets/images/review-article.jpg',
       description: 'Well-researched, high-citation systematic review articles based on a verified literature base with PRISMA protocol and meta-analysis.',
       features: [
         'Literature search & indexing databases',
@@ -58,7 +58,7 @@ export default function App() {
       badge: 'Editing & Formatting',
       badgeColor: 'text-[#611b45] bg-pink-50',
       title: 'Technical Editing & Improvement',
-      image: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&q=80&w=700',
+      image: '/assets/images/technical-editing.jpg',
       description: 'Enhance your existing manuscript for clarity, academic tone, grammar, and compliance with strict journal author guidelines.',
       features: [
         'Native English polishing & flow',
@@ -73,7 +73,7 @@ export default function App() {
       badge: 'Quantitative Rigor',
       badgeColor: 'text-[#ea580c] bg-orange-50',
       title: 'Data Analysis & Interpretation',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=700',
+      image: '/assets/images/research-analytics.jpg',
       description: 'Statistical computation, machine learning modelling, publication-grade data visualizations, and result discussion drafting.',
       features: [
         'Statistical tools: SPSS, R, Python, MATLAB',
@@ -88,7 +88,7 @@ export default function App() {
       badge: 'Journal Strategy',
       badgeColor: 'text-[#611b45] bg-pink-50',
       title: 'Journal Selection & Submission',
-      image: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=700',
+      image: '/assets/images/peer-review-mentorship.jpg',
       description: 'Identify ideal Q1-Q4 journals matching your research scope, avoiding predatory publishers, with complete submission portal handling.',
       features: [
         'Scopus & SCI indexing verification',
@@ -103,7 +103,7 @@ export default function App() {
       badge: 'Rebuttal & Revisions',
       badgeColor: 'text-[#ea580c] bg-orange-50',
       title: 'Reviewer Response & Revision Support',
-      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=700',
+      image: '/assets/images/hero-research.jpg',
       description: 'Professional point-by-point rebuttal letters and manuscript revision with tracked changes to satisfy peer-reviewer queries.',
       features: [
         'Point-by-point response matrix',
@@ -174,35 +174,13 @@ export default function App() {
       <header className="bg-gradient-to-r from-[#0c1c38] via-[#102447] to-[#0c1c38] border-b border-[#1b345f] sticky top-0 z-50 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
-          {/* Rubrixx Brand Logo with Signature Cloud & Trailing Speed Lines */}
-          <a href="https://www.rubrixx.com/" className="flex items-center space-x-3 group">
-            <div className="relative flex items-center">
-              {/* Cloud vector SVG with speed lines */}
-              <div className="w-12 h-10 flex items-center justify-center">
-                <svg viewBox="0 0 100 65" className="w-full h-full fill-none">
-                  {/* Speed lines */}
-                  <line x1="5" y1="32" x2="30" y2="32" stroke="#ea580c" strokeWidth="4" strokeLinecap="round" />
-                  <line x1="10" y1="42" x2="25" y2="42" stroke="#ea580c" strokeWidth="4" strokeLinecap="round" />
-                  <line x1="12" y1="22" x2="28" y2="22" stroke="#ea580c" strokeWidth="4" strokeLinecap="round" />
-                  {/* Cloud Body */}
-                  <path d="M72 50 H38 C28 50 20 42 20 32 C20 23 27 16 35 15 C39 8 47 4 56 4 C67 4 76 11 79 21 C85 22 90 27 90 33 C90 42 82 50 72 50 Z" 
-                        fill="url(#cloudGrad)" />
-                  <defs>
-                    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#f59e0b" />
-                      <stop offset="50%" stopColor="#ea580c" />
-                      <stop offset="100%" stopColor="#dc2626" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <div className="ml-1">
-                <span className="text-2xl font-black tracking-tight block leading-none font-sans">
-                  <span className="text-[#ea580c]">R</span><span className="text-white">ubrixx</span>
-                </span>
-                <span className="text-[9px] font-bold tracking-widest text-[#f59e0b] uppercase block">IT SOLUTIONS</span>
-              </div>
-            </div>
+          {/* Rubrixx Brand Logo - Using actual logo image */}
+          <a href="https://www.rubrixx.com/" className="flex items-center group">
+            <img 
+              src="/assets/images/rubrixx-logo.png" 
+              alt="Rubrixx IT Solutions" 
+              className="h-12 sm:h-14 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation Links */}
@@ -264,10 +242,9 @@ export default function App() {
           SIGNATURE RUBRIXX HERO BANNER
           (Exact Deep Blue Glossy Style from all 5 screenshots)
       =========================================== */}
-      <section className="relative bg-gradient-to-r from-[#0a1931] via-[#112d59] to-[#0a1931] py-16 md:py-24 overflow-hidden border-b border-[#19396e]">
-        {/* Subtle abstract background networking wave from screenshots */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20 pointer-events-none bg-no-repeat bg-right"
-             style={{ backgroundImage: `radial-gradient(circle at right, rgba(255,255,255,0.2) 0%, transparent 60%)` }}>
+      <section className="relative py-16 md:py-24 overflow-hidden border-b border-[#19396e]" style={{ backgroundImage: `url('/assets/images/banner-bg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-[#0a1931]/80 pointer-events-none">
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
