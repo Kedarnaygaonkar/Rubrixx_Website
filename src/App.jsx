@@ -4,7 +4,8 @@ import {
   Phone, Mail, Clock, ArrowRight, ArrowDown, CheckCircle2, Award, 
   ShieldCheck, Target, FileText, BarChart3, BookOpen, 
   MessageSquare, ChevronDown, ChevronUp, Star, Menu, X,
-  Dna, Cpu, GraduationCap, Lock, Check, Globe, MapPin
+  Dna, Cpu, GraduationCap, Lock, Check, Globe, MapPin,
+  Sparkles, Layers, Shield, PenTool
 } from 'lucide-react';
 
 export default function App() {
@@ -183,14 +184,15 @@ export default function App() {
             />
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7 text-xs font-bold text-white uppercase tracking-wider">
+          {/* Desktop Navigation Links matching attached image */}
+          <nav className="hidden lg:flex items-center space-x-6 text-xs font-bold text-white uppercase tracking-wider">
             <a href="https://www.rubrixx.com/" className="hover:text-[#ffcc00] transition">Home</a>
-            <a href="https://www.rubrixx.com/about-us.php" className="hover:text-[#ffcc00] transition">About Us</a>
-            <a href="https://www.rubrixx.com/services.php" className="hover:text-[#ffcc00] transition">Services</a>
-            <a href="#services" className="text-[#ffcc00] border-b-2 border-[#ffcc00] pb-1">Research Services</a>
-            <a href="https://www.rubrixx.com/training.php" className="hover:text-[#ffcc00] transition">Industrial Training & Internship</a>
-            <a href="#contact" className="hover:text-[#ffcc00] transition">Contact Us</a>
+            <a href="#services" className="hover:text-[#ffcc00] transition">Services</a>
+            <a href="#pricing" className="hover:text-[#ffcc00] transition">Pricing</a>
+            <a href="#packages" className="hover:text-[#ffcc00] transition">Packages</a>
+            <a href="#process" className="hover:text-[#ffcc00] transition">Process</a>
+            <a href="#testimonials" className="hover:text-[#ffcc00] transition">Testimonials</a>
+            <a href="#contact" className="hover:text-[#ffcc00] transition">Contact</a>
           </nav>
 
           {/* Exact Rubrixx "Get A Quote" Yellow Rectangle Button */}
@@ -223,11 +225,12 @@ export default function App() {
               className="lg:hidden bg-[#0c1c38] border-b border-[#1b345f] px-4 py-4 space-y-3 text-xs font-bold text-white uppercase"
             >
               <a href="https://www.rubrixx.com/" className="block py-1 hover:text-[#ffcc00]">Home</a>
-              <a href="https://www.rubrixx.com/about-us.php" className="block py-1 hover:text-[#ffcc00]">About Us</a>
-              <a href="https://www.rubrixx.com/services.php" className="block py-1 hover:text-[#ffcc00]">Services</a>
-              <a href="#services" className="block py-1 text-[#ffcc00]">Research Services</a>
-              <a href="https://www.rubrixx.com/training.php" className="block py-1 hover:text-[#ffcc00]">Industrial Training & Internship</a>
-              <a href="#contact" className="block py-1 hover:text-[#ffcc00]">Contact Us</a>
+              <a href="#services" className="block py-1 hover:text-[#ffcc00]">Services</a>
+              <a href="#pricing" className="block py-1 hover:text-[#ffcc00]">Pricing</a>
+              <a href="#packages" className="block py-1 hover:text-[#ffcc00]">Packages</a>
+              <a href="#process" className="block py-1 hover:text-[#ffcc00]">Process</a>
+              <a href="#testimonials" className="block py-1 hover:text-[#ffcc00]">Testimonials</a>
+              <a href="#contact" className="block py-1 hover:text-[#ffcc00]">Contact</a>
               <div className="pt-2">
                 <a href="#contact" className="bg-[#ffcc00] text-black w-full text-center py-2.5 rounded-md block font-extrabold">
                   Get A Quote
@@ -745,38 +748,396 @@ export default function App() {
       </section>
 
       {/* ==========================================
-          5-STEP METHODOLOGY
+          ADDITIONAL SERVICES & OUR PACKAGES SPLIT
+          (Directly from attached reference design)
       =========================================== */}
-      <section id="process" className="py-16 bg-[#fcfaf7]">
+      <section id="packages" className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            {/* Left: Additional Services (On Request) */}
+            <div className="lg:col-span-5 bg-white p-7 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
+                  <div>
+                    <h3 className="font-extrabold text-gray-900 text-base">
+                      Additional Services <span className="text-xs font-normal text-gray-400">(On Request)</span>
+                    </h3>
+                    <p className="text-xs text-gray-400 mt-0.5">Available modularly on request</p>
+                  </div>
+                  <span className="bg-orange-50 text-[#ea580c] text-xs font-bold px-2.5 py-0.5 rounded-md">
+                    Add-ons
+                  </span>
+                </div>
+
+                <div className="divide-y divide-gray-100 text-xs">
+                  <div className="py-3.5 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-7 h-7 rounded-lg bg-orange-50 text-[#ea580c] flex items-center justify-center text-xs flex-shrink-0">
+                        <BarChart3 className="w-4 h-4" />
+                      </div>
+                      <span className="text-gray-700 font-medium">Advanced statistical analysis</span>
+                    </div>
+                    <span className="font-bold text-gray-900">₹10,000 – 24,000+</span>
+                  </div>
+
+                  <div className="py-3.5 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs flex-shrink-0">
+                        <Cpu className="w-4 h-4" />
+                      </div>
+                      <span className="text-gray-700 font-medium">Machine learning & AI/ML modelling</span>
+                    </div>
+                    <span className="font-bold text-gray-900">₹14,000 – 40,000+</span>
+                  </div>
+
+                  <div className="py-3.5 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-7 h-7 rounded-lg bg-orange-50 text-[#ea580c] flex items-center justify-center text-xs flex-shrink-0">
+                        <BookOpen className="w-4 h-4" />
+                      </div>
+                      <span className="text-gray-700 font-medium">Systematic review & meta-analysis</span>
+                    </div>
+                    <span className="font-bold text-gray-900">₹14,000 – 25,000+</span>
+                  </div>
+
+                  <div className="py-3.5 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs flex-shrink-0">
+                        <PenTool className="w-4 h-4" />
+                      </div>
+                      <span className="text-gray-700 font-medium">Graphics, illustrations & figure design</span>
+                    </div>
+                    <span className="font-bold text-gray-900">₹5,000 – 15,000+</span>
+                  </div>
+
+                  <div className="py-3.5 flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-7 h-7 rounded-lg bg-pink-50 text-[#611b45] flex items-center justify-center text-xs flex-shrink-0">
+                        <GraduationCap className="w-4 h-4" />
+                      </div>
+                      <span className="text-gray-700 font-medium">Subject-specific expertise (medical, eng., etc.)</span>
+                    </div>
+                    <span className="font-bold text-gray-900">₹10,000 – 30,000+</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-[11px] text-gray-400 mt-6 pt-4 border-t border-gray-100">
+                Complex projects, large datasets or specialised domains may require custom quotations.
+              </p>
+            </div>
+
+            {/* Right: Curated Ready Packages */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div className="mb-4">
+                <h3 className="font-extrabold text-gray-900 text-lg">Our Packages</h3>
+                <p className="text-xs text-gray-500">Pick a structured bundled package for swift milestone execution.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1 items-stretch">
+                
+                {/* Essential */}
+                <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:border-amber-300 transition">
+                  <div>
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">Essential</span>
+                    <div className="text-2xl font-extrabold text-gray-900 mt-1 mb-1">₹25,000+</div>
+                    <p className="text-[11px] text-gray-400 mb-5 pb-3 border-b border-gray-100">Basic writing & editing support</p>
+                    
+                    <ul className="text-xs space-y-2.5 text-gray-600">
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Manuscript development / editing</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Formatting assistance</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>1 round of revisions</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <a 
+                    href="#contact" 
+                    className="mt-8 w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-extrabold text-xs uppercase tracking-wider py-2.5 rounded-lg text-center block shadow transition"
+                  >
+                    Get Started
+                  </a>
+                </div>
+
+                {/* Professional */}
+                <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:border-amber-300 transition">
+                  <div>
+                    <span className="text-xs font-bold text-[#059669] uppercase tracking-wider block">Professional</span>
+                    <div className="text-2xl font-extrabold text-gray-900 mt-1 mb-1">₹40,000+</div>
+                    <p className="text-[11px] text-gray-400 mb-5 pb-3 border-b border-gray-100">Comprehensive support</p>
+                    
+                    <ul className="text-xs space-y-2.5 text-gray-600">
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-[#059669] mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Writing + editing</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-[#059669] mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Data analysis (basic)</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-[#059669] mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Journal selection</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-[#059669] mr-2 mt-0.5 flex-shrink-0" />
+                        <span>2 rounds of revisions</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <a 
+                    href="#contact" 
+                    className="mt-8 w-full bg-[#059669] hover:bg-[#047857] text-white font-extrabold text-xs uppercase tracking-wider py-2.5 rounded-lg text-center block shadow transition"
+                  >
+                    Get Started
+                  </a>
+                </div>
+
+                {/* Premium (Most Popular) */}
+                <div className="bg-white p-6 rounded-2xl border-2 border-[#9333ea] shadow-md flex flex-col justify-between relative">
+                  <span className="absolute -top-3 right-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-sm">
+                    MOST POPULAR
+                  </span>
+                  <div>
+                    <span className="text-xs font-bold text-[#9333ea] uppercase tracking-wider block">Premium</span>
+                    <div className="text-2xl font-extrabold text-gray-900 mt-1 mb-1">₹60,000+</div>
+                    <p className="text-[11px] text-gray-400 mb-5 pb-3 border-b border-gray-100">End-to-end research support</p>
+                    
+                    <ul className="text-xs space-y-2.5 text-gray-600">
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-[#9333ea] mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Full manuscript development</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-[#9333ea] mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Advanced analysis</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-[#9333ea] mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Figures & tables</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-3.5 h-3.5 text-[#9333ea] mr-2 mt-0.5 flex-shrink-0" />
+                        <span>Submission & revision support</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <a 
+                    href="#contact" 
+                    className="mt-8 w-full bg-[#9333ea] hover:bg-[#7e22ce] text-white font-extrabold text-xs uppercase tracking-wider py-2.5 rounded-lg text-center block shadow transition"
+                  >
+                    Get Started
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          5-STEP PROCESS & WHY CHOOSE US
+          (2-Column Layout matching attached image)
+      =========================================== */}
+      <section id="process" className="py-16 bg-[#fcfaf7] border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-              Our Simple 5-Step Process
-            </h2>
-            <p className="text-gray-500 text-xs mt-1">A structured roadmap ensuring transparency and publication success.</p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left 8 cols: Our Simple Process */}
+            <div className="lg:col-span-8">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+                Our Simple Process
+              </h2>
+              <p className="text-gray-500 text-xs mt-1 mb-8">
+                A clear and collaborative process to ensure the best results.
+              </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
-            {[
-              { num: '1', title: 'Consultation', desc: 'Discuss scope and journal targets under strict mutual NDA.' },
-              { num: '2', title: 'Proposal & Quote', desc: 'Clear milestone roadmap and transparent pricing.' },
-              { num: '3', title: 'Research & Writing', desc: 'Expert drafting, analysis and weekly syncs.' },
-              { num: '4', title: 'Review & Revision', desc: 'Feedback incorporation and Turnitin report check.' },
-              { num: '5', title: 'Submission', desc: 'Portal upload and reviewer rebuttal support.' }
-            ].map(step => (
-              <div key={step.num} className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-[#611b45] text-white flex items-center justify-center font-black text-sm mb-3">
-                  {step.num}
-                </div>
-                <h4 className="font-bold text-xs text-gray-900 mb-1">{step.title}</h4>
-                <p className="text-[11px] text-gray-500 leading-normal">{step.desc}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-5 gap-3.5">
+                {[
+                  { num: '1', title: 'Initial Consultation', desc: 'Discuss your research, scope and requirements.' },
+                  { num: '2', title: 'Proposal & Quotation', desc: 'Get a detailed plan and transparent pricing.' },
+                  { num: '3', title: 'Research & Writing', desc: 'Expert work, regular updates and milestone delivery.' },
+                  { num: '4', title: 'Review & Revision', desc: 'Incorporate your feedback and finalize the manuscript.' },
+                  { num: '5', title: 'Submission Support', desc: 'Guidance for journal submission and next steps.' }
+                ].map(step => (
+                  <div key={step.num} className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm text-center flex flex-col items-center">
+                    <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-extrabold text-xs mb-3">
+                      {step.num}
+                    </div>
+                    <h4 className="font-bold text-xs text-gray-900 mb-1">{step.title}</h4>
+                    <p className="text-[11px] text-gray-500 leading-normal">{step.desc}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right 4 cols: Why Choose Us? Card matching image */}
+            <div className="lg:col-span-4 bg-white p-6 sm:p-7 rounded-2xl border border-blue-100 shadow-sm">
+              <h3 className="font-extrabold text-gray-900 text-base mb-4">
+                Why Choose Us?
+              </h3>
+              <ul className="space-y-3.5 text-xs text-gray-700">
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <span><strong>Experienced research professionals</strong> with domain expertise</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <span><strong>Ethical and plagiarism-free</strong> work</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <span><strong>Focus on quality</strong>, originality and clarity</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <span><strong>Flexible packages</strong> and milestone payments</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <span><strong>Dedicated support</strong> and clear communication</span>
+                </li>
+              </ul>
+            </div>
+
           </div>
 
         </div>
       </section>
+
+      {/* ==========================================
+          WHAT OUR CLIENTS SAY (TESTIMONIALS)
+          (Directly from attached reference design)
+      =========================================== */}
+      <section id="testimonials" className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="mb-10">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              What Our Clients Say
+            </h2>
+            <p className="text-gray-500 text-xs mt-1">
+              Trusted by PhD scholars, faculty and researchers worldwide.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Testimonial 1: Dr. Ananya S. */}
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+              <div>
+                <p className="text-xs text-gray-600 italic leading-relaxed mb-6">
+                  "Excellent support in converting my research into a high-quality manuscript. The team's subject knowledge and professionalism are outstanding."
+                </p>
+              </div>
+              <div className="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
+                <img 
+                  src="/assets/images/client-ananya.jpg" 
+                  alt="Dr. Ananya S." 
+                  className="w-11 h-11 rounded-full object-cover border-2 border-orange-200"
+                />
+                <div>
+                  <h4 className="font-bold text-gray-900 text-xs">Dr. Ananya S.</h4>
+                  <p className="text-[10px] text-gray-400">PhD Scholar, XXX (Delhi)</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2: Prof. R. Kumar */}
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+              <div>
+                <p className="text-xs text-gray-600 italic leading-relaxed mb-6">
+                  "Their data analysis and writing support significantly improved the quality of my paper. I highly recommend their services."
+                </p>
+              </div>
+              <div className="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
+                <img 
+                  src="/assets/images/client-kumar.jpg" 
+                  alt="Prof. R. Kumar" 
+                  className="w-11 h-11 rounded-full object-cover border-2 border-orange-200"
+                />
+                <div>
+                  <h4 className="font-bold text-gray-900 text-xs">Prof. R. Kumar</h4>
+                  <p className="text-[10px] text-gray-400">Associate Professor, XXX</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 3: Dr. Meeta T. */}
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+              <div>
+                <p className="text-xs text-gray-600 italic leading-relaxed mb-6">
+                  "Professional, responsive and reliable. The manuscript was well-structured and submission-ready. Great experience!"
+                </p>
+              </div>
+              <div className="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
+                <img 
+                  src="/assets/images/client-meeta.jpg" 
+                  alt="Dr. Meeta T." 
+                  className="w-11 h-11 rounded-full object-cover border-2 border-orange-200"
+                />
+                <div>
+                  <h4 className="font-bold text-gray-900 text-xs">Dr. Meeta T.</h4>
+                  <p className="text-[10px] text-gray-400">Faculty, XXX</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          READY TO PUBLISH YOUR RESEARCH? (PRE-FOOTER CTA)
+          (Directly from attached reference design)
+      =========================================== */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <div className="bg-[#0c1c38] text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-[#1b345f]">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 rounded-xl bg-blue-600/30 border border-blue-400/30 flex items-center justify-center text-white flex-shrink-0">
+              <Mail className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold text-white">Ready to Publish Your Research?</h3>
+              <p className="text-xs text-stone-300 mt-0.5">Get a free consultation and customized quote for your project.</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <a 
+              href="#contact" 
+              className="bg-white hover:bg-stone-100 text-gray-900 font-extrabold text-xs px-5 py-2.5 rounded-lg shadow transition whitespace-nowrap"
+            >
+              Contact Us
+            </a>
+            <a 
+              href="mailto:info@rubrixx.com" 
+              className="flex items-center space-x-1.5 text-xs text-stone-300 hover:text-[#ffcc00] transition"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              <span>info@rubrixx.com</span>
+            </a>
+            <a 
+              href="tel:+918087579068" 
+              className="flex items-center space-x-1.5 text-xs text-stone-300 hover:text-[#ffcc00] transition"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>+91 80875 79068</span>
+            </a>
+          </div>
+        </div>
+      </div>
 
       {/* ==========================================
           CONTACT SECTION: "Ready To Get Started ?"
