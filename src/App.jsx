@@ -138,6 +138,49 @@ export default function App() {
     }
   ];
 
+  const testimonials = [
+    {
+      id: 1,
+      quote: "Excellent support in converting my research into a high-quality manuscript. The team's subject knowledge and professionalism are outstanding.",
+      name: "Dr. Ananya S.",
+      role: "PhD Scholar, XXX (Delhi)",
+      image: "/assets/images/client-ananya.jpg",
+      badge: "Q1 IEEE Published"
+    },
+    {
+      id: 2,
+      quote: "Their data analysis and writing support significantly improved the quality of my paper. I highly recommend their services.",
+      name: "Prof. R. Kumar",
+      role: "Associate Professor, XXX",
+      image: "/assets/images/client-kumar.jpg",
+      badge: "Elsevier Published"
+    },
+    {
+      id: 3,
+      quote: "Professional, responsive and reliable. The manuscript was well-structured and submission-ready. Great experience!",
+      name: "Dr. Meeta T.",
+      role: "Faculty, XXX",
+      image: "/assets/images/client-meeta.jpg",
+      badge: "Springer Nature"
+    },
+    {
+      id: 4,
+      quote: "The point-by-point rebuttal strategy addressed every difficult query from peer reviewers. The manuscript was accepted within four months.",
+      name: "Dr. Priya Nair",
+      role: "Assistant Professor, NIT",
+      image: "/assets/images/client-ananya.jpg",
+      badge: "Scopus Q1 Indexed"
+    },
+    {
+      id: 5,
+      quote: "Rigorous statistical analysis using Python & SPSS with publication-grade figures. Exceptional attention to scientific detail.",
+      name: "Dr. S. Venkatesh",
+      role: "Postdoctoral Researcher, IISc",
+      image: "/assets/images/client-kumar.jpg",
+      badge: "SCI Impact Factor 4.8"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white text-gray-800 flex flex-col font-sans">
       
@@ -1019,82 +1062,74 @@ export default function App() {
           WHAT OUR CLIENTS SAY (TESTIMONIALS)
           (Directly from attached reference design)
       =========================================== */}
-      <section id="testimonials" className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="mb-10">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-              What Our Clients Say
-            </h2>
-            <p className="text-gray-500 text-xs mt-1">
-              Trusted by PhD scholars, faculty and researchers worldwide.
-            </p>
+      {/* ==========================================
+          WHAT OUR CLIENTS SAY (INFINITE MARQUEE LOOP)
+          (Smooth continuous loop moving left-to-right with pause on hover)
+      =========================================== */}
+      <section id="testimonials" className="py-16 bg-white border-b border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+                What Our Clients Say
+              </h2>
+              <p className="text-gray-500 text-xs mt-1">
+                Trusted by PhD scholars, faculty and researchers worldwide.
+              </p>
+            </div>
+            <div className="text-[11px] text-gray-400 font-medium hidden sm:flex items-center space-x-1">
+              <span>(Hover any card to pause)</span>
+            </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            {/* Testimonial 1: Dr. Ananya S. */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition">
-              <div>
-                <p className="text-xs text-gray-600 italic leading-relaxed mb-6">
-                  "Excellent support in converting my research into a high-quality manuscript. The team's subject knowledge and professionalism are outstanding."
-                </p>
-              </div>
-              <div className="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
-                <img 
-                  src="/assets/images/client-ananya.jpg" 
-                  alt="Dr. Ananya S." 
-                  className="w-11 h-11 rounded-full object-cover border-2 border-orange-200"
-                />
+        {/* Carousel Container with Left/Right Soft Fade Gradients */}
+        <div className="relative w-full overflow-hidden">
+          {/* Left Fade Gradient */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+
+          {/* Right Fade Gradient */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+          {/* Infinite Marquee Track (Left to Right) */}
+          <div className="animate-marquee-ltr py-4 flex space-x-6">
+            {[...testimonials, ...testimonials].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="w-[330px] sm:w-[380px] bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-lg hover:border-amber-200 transition-all duration-300 flex-shrink-0"
+              >
                 <div>
-                  <h4 className="font-bold text-gray-900 text-xs">Dr. Ananya S.</h4>
-                  <p className="text-[10px] text-gray-400">PhD Scholar, XXX (Delhi)</p>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-1 text-amber-500 text-xs">
+                      <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    </div>
+                    <span className="text-[10px] font-bold text-[#ea580c] bg-orange-50 px-2 py-0.5 rounded-full">
+                      {item.badge}
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-600 italic leading-relaxed mb-6">
+                    "{item.quote}"
+                  </p>
+                </div>
+
+                <div className="flex items-center space-x-3.5 pt-4 border-t border-gray-100 mt-auto">
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className="w-11 h-11 rounded-full object-cover border-2 border-orange-200 flex-shrink-0"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-xs">{item.name}</h4>
+                    <p className="text-[10px] text-gray-400">{item.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Testimonial 2: Prof. R. Kumar */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition">
-              <div>
-                <p className="text-xs text-gray-600 italic leading-relaxed mb-6">
-                  "Their data analysis and writing support significantly improved the quality of my paper. I highly recommend their services."
-                </p>
-              </div>
-              <div className="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
-                <img 
-                  src="/assets/images/client-kumar.jpg" 
-                  alt="Prof. R. Kumar" 
-                  className="w-11 h-11 rounded-full object-cover border-2 border-orange-200"
-                />
-                <div>
-                  <h4 className="font-bold text-gray-900 text-xs">Prof. R. Kumar</h4>
-                  <p className="text-[10px] text-gray-400">Associate Professor, XXX</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonial 3: Dr. Meeta T. */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:shadow-md transition">
-              <div>
-                <p className="text-xs text-gray-600 italic leading-relaxed mb-6">
-                  "Professional, responsive and reliable. The manuscript was well-structured and submission-ready. Great experience!"
-                </p>
-              </div>
-              <div className="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
-                <img 
-                  src="/assets/images/client-meeta.jpg" 
-                  alt="Dr. Meeta T." 
-                  className="w-11 h-11 rounded-full object-cover border-2 border-orange-200"
-                />
-                <div>
-                  <h4 className="font-bold text-gray-900 text-xs">Dr. Meeta T.</h4>
-                  <p className="text-[10px] text-gray-400">Faculty, XXX</p>
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
-
         </div>
       </section>
 
