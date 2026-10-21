@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubrixx IT Solutions | Academic & Scientific Research Support Services</title>
+    <meta name="description" content="Premier research support for PhD scholars, researchers, and university faculty. Manuscript drafting, statistical modeling, LaTeX formatting, and publication assistance in Q1-Q4 Scopus, SCI, and IEEE journals.">
+    <link rel="icon" type="image/png" href="https://www.rubrixx.com/assets/images/favicon/favicon.png">
+
+    <!-- Premium Fonts: Plus Jakarta Sans & Public Sans & Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Public+Sans:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 Pro Free CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', '"Public Sans"', 'sans-serif'],
+                        body: ['"Roboto"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#f59e0b',
+                            amber: '#fbbf24',
+                            orange: '#ea580c',
+                            tangerine: '#f97316',
+                            warmDark: '#1c1917',
+                            warmGray: '#44403c',
+                            lightBg: '#fdfbf7',
+                            softBorder: '#fed7aa',
+                            pinkDark: '#831843',
+                            pinkBase: '#9d174d',
+                            pinkRich: '#be185d',
+                            pinkRose: '#f43f5e',
+                            pinkSoft: '#fdf2f8',
+                        }
+                    },
+                    keyframes: {
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        floatLag: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(200%)' },
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 4s ease-in-out infinite',
+                        'float-lag': 'floatLag 5s ease-in-out infinite 1s',
+                        'pulse-glow': 'pulseGlow 6s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Refined White + Yellow-Orange Mixture Theme & Pink Footer Custom Styles -->
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: #374151;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Sunset Orange-Yellow Gradient Button with Shimmer Ray */
+        .btn-sunset {
+            background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+            color: #ffffff;
+            font-weight: 700;
+            border-radius: 10px;
+            padding: 11px 26px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 18px rgba(234, 88, 12, 0.28);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-sunset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(234, 88, 12, 0.42);
+            background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+            color: #ffffff;
+        }
+
+        .btn-sunset::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: rotate(25deg);
+            transition: all 0.75s ease;
+        }
+
+        .btn-sunset:hover::after {
+            left: 200%;
+        }
+
+        /* Clean White Outline Button with Warm Border */
+        .btn-warm-outline {
+            background-color: #ffffff;
+            color: #ea580c;
+            border: 2px solid #fed7aa;
+            font-weight: 700;
+            border-radius: 10px;
+            padding: 9px 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-warm-outline:hover {
+            border-color: #ea580c;
+            background-color: #fff7ed;
+            color: #c2410c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(234, 88, 12, 0.12);
+        }
+
+        /* Elegant Card Lift & Amber Border Sweep */
+        .card-warm-lift {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-warm-lift::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3.5px;
+            background: linear-gradient(90deg, #f59e0b, #ea580c);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-warm-lift:hover {
+            transform: translateY(-6px);
+            border-color: #fed7aa;
+            box-shadow: 0 20px 35px -5px rgba(234, 88, 12, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+        }
+
+        .card-warm-lift:hover::before {
+            opacity: 1;
+        }
+
+        /* Gradient Text */
+        .text-gradient-warm {
+            background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Warm Underline Accent */
+        .title-warm-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-warm-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 52px;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #ea580c);
+            border-radius: 4px;
+        }
+
+        /* Filter Pills */
+        .pill-tab {
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            color: #4b5563;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .pill-tab:hover {
+            border-color: #ea580c;
+            color: #ea580c;
+            background: #fff7ed;
+        }
+
+        .pill-tab.active {
+            background: linear-gradient(135deg, #f59e0b, #ea580c);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+        }
+
+        /* Pink Footer Background Theme */
+        .footer-pink-theme {
+            background: linear-gradient(135deg, #701a75 0%, #831843 35%, #9d174d 70%, #be185d 100%);
+            color: #fce7f3;
+        }
+
+        /* Scroll Reveal Animation Styles */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-element.is-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Authentic Publisher Brand Card */
+        .brand-badge-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .brand-badge-card:hover {
+            border-color: #fed7aa;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px -2px rgba(234, 88, 12, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- ==========================================
+         TOPBAR (Warm Light / Orange-Yellow Mixture)
+    =========================================== -->
+    <div class="bg-[#fffbf5] border-b border-orange-100 text-xs py-2.5 text-stone-600 hidden lg:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <!-- Direct Coordinates -->
+                <ul class="flex items-center space-x-7">
+                    <li class="flex items-center space-x-2">
+                        <i class="fa-solid fa-phone text-[#ea580c]"></i>
+                        <a href="tel:+918087579068" class="font-medium hover:text-[#ea580c] transition">+91 80875 79068</a>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <i class="fa-solid fa-envelope text-[#ea580c]"></i>
+                        <a href="mailto:info@rubrixx.com" class="font-medium hover:text-[#ea580c] transition">info@rubrixx.com</a>
+                    </li>
+                    <li class="flex items-center space-x-2 text-stone-500">
+                        <i class="fa-regular fa-clock text-[#f59e0b]"></i>
+                        <span>Support Hours: 9:00 AM - 6:00 PM (IST)</span>
+                    </li>
+                </ul>
+
+                <!-- Socials & WhatsApp -->
+                <div class="flex items-center space-x-5">
+                    <ul class="flex items-center space-x-3.5 text-stone-400">
+                        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" class="hover:text-[#ea580c] transition" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com/" target="_blank" rel="noopener" class="hover:text-[#ea580c] transition" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" class="hover:text-[#ea580c] transition" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="hover:text-[#ea580c] transition" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                    <a href="https://wa.me/918087579068?text=Hello%20Rubrixx%20Team,%20I%20am%20interested%20in%20Research%20Services" target="_blank" class="text-xs font-bold text-[#ea580c] hover:text-[#c2410c] flex items-center space-x-1.5 pl-4 border-l border-orange-200">
+                        <i class="fab fa-whatsapp text-sm text-emerald-500"></i>
+                        <span>WhatsApp Advisor</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         NAVIGATION BAR (Luminous Pure White)
+    =========================================== -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Modern Rubrixx Brand Logo with Sunset Gradient Cloud -->
+            <a href="https://www.rubrixx.com/" class="flex items-center space-x-3 group" title="Rubrixx IT Solutions">
+                <!-- Cloud SVG Vector Mark with Yellow-Orange Gradient -->
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#ea580c] via-[#f59e0b] to-[#fbbf24] flex items-center justify-center text-white text-xl shadow-md shadow-orange-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-gray-900 block leading-none">
+                        Rub<span class="text-[#ea580c]">rixx</span>
+                    </span>
+                    <span class="text-[10px] font-bold tracking-widest text-[#f59e0b] uppercase">IT SOLUTIONS</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-gray-700">
+                <a href="https://www.rubrixx.com/" class="hover:text-[#ea580c] transition py-2">Home</a>
+                <a href="https://www.rubrixx.com/about-us.php" class="hover:text-[#ea580c] transition py-2">About Us</a>
+                <a href="https://www.rubrixx.com/services.php" class="hover:text-[#ea580c] transition py-2">IT Services</a>
+                
+                <!-- Active Page Indicator with Yellow-Orange Accent -->
+                <a href="#services" class="text-[#ea580c] font-bold border-b-2 border-[#ea580c] pb-1">
+                    Research Services
+                </a>
+
+                <a href="#showcase" class="hover:text-[#ea580c] transition py-2">Capabilities</a>
+                <a href="#pricing" class="hover:text-[#ea580c] transition py-2">Pricing</a>
+                <a href="#process" class="hover:text-[#ea580c] transition py-2">Process</a>
+                <a href="https://www.rubrixx.com/training.php" class="hover:text-[#ea580c] transition py-2">Industrial Training</a>
+                <a href="#contact" class="hover:text-[#ea580c] transition py-2">Contact Us</a>
+            </nav>
+
+            <!-- Sunset Gradient CTA Button -->
+            <div class="hidden sm:block">
+                <a href="#contact" class="btn-sunset text-xs uppercase tracking-wider">
+                    <span>Get A Quote</span>
+                    <i class="fa-solid fa-arrow-right text-[11px] ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileNavButton" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-orange-50 focus:outline-none" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars text-xl" id="navIconBars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileDropdown" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-2.5 shadow-lg">
+            <a href="https://www.rubrixx.com/" class="block text-sm font-semibold text-gray-700 py-1.5 border-b border-gray-100">Home</a>
+            <a href="https://www.rubrixx.com/about-us.php" class="block text-sm font-semibold text-gray-700 py-1.5 border-b border-gray-100">About Us</a>
+            <a href="https://www.rubrixx.com/services.php" class="block text-sm font-semibold text-gray-700 py-1.5 border-b border-gray-100">IT Services</a>
+            <a href="#services" class="block text-sm font-bold text-[#ea580c] py-1.5 border-b border-gray-100">Research Services</a>
+            <a href="#showcase" class="block text-sm font-semibold text-gray-700 py-1.5 border-b border-gray-100">Capabilities</a>
+            <a href="#pricing" class="block text-sm font-semibold text-gray-700 py-1.5 border-b border-gray-100">Pricing Plans</a>
+            <a href="#process" class="block text-sm font-semibold text-gray-700 py-1.5 border-b border-gray-100">5-Step Process</a>
+            <a href="https://www.rubrixx.com/training.php" class="block text-sm font-semibold text-gray-700 py-1.5 border-b border-gray-100">Industrial Training & Internship</a>
+            <a href="#contact" class="block text-sm font-semibold text-gray-700 py-1.5">Contact Us</a>
+            <div class="pt-2">
+                <a href="#contact" class="btn-sunset w-full text-center text-xs uppercase tracking-wider block">
+                    Get A Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION (White + Yellow-Orange Mixture + Photo Visual)
+         (Clean, Spacious, NO form clutter!)
+    =========================================== -->
+    <section class="relative bg-gradient-to-b from-[#fffbf5] via-[#ffffff] to-[#fffaf0] pt-14 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-orange-100/60">
+        
+        <!-- Ambient decorative warm background blurs -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
+        <div class="absolute top-1/2 -right-24 w-96 h-96 bg-orange-200/25 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Headline & Content (7 cols) -->
+                <div class="lg:col-span-7">
+                    <!-- Pill Tag with yellow-orange spark -->
+                    <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/80 px-3.5 py-1.5 rounded-full text-xs font-bold text-[#c2410c] uppercase tracking-wider mb-5 shadow-xs">
+                        <span class="w-2 h-2 rounded-full bg-[#f59e0b] animate-ping"></span>
+                        <span>Professional Academic Research & Publication Support</span>
+                    </div>
+
+                    <!-- Main Catchy Title -->
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.12] tracking-tight mb-6">
+                        Turn Your Research into <br class="hidden sm:inline">
+                        <span class="text-gradient-warm">Published Impact</span>
+                    </h1>
+
+                    <!-- Descriptive Paragraph -->
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-8 max-w-xl font-normal">
+                        End-to-end guidance for manuscript development, statistical data analysis, scientific visualization, and journal submission in reputed <strong class="text-gray-900 font-semibold">SCI, Scopus, IEEE & Web of Science (Q1–Q4)</strong> journals.
+                    </p>
+
+                    <!-- Clean Action Buttons (NO form inputs!) -->
+                    <div class="flex flex-wrap items-center gap-4 mb-10">
+                        <a href="#services" class="btn-sunset text-xs uppercase tracking-wider font-bold">
+                            <span>Explore Our Services</span>
+                            <i class="fa-solid fa-arrow-down text-xs ml-2"></i>
+                        </a>
+
+                        <a href="#contact" class="btn-warm-outline text-xs uppercase tracking-wider font-bold">
+                            <i class="fa-regular fa-comments mr-2"></i>
+                            <span>Contact Advisor</span>
+                        </a>
+
+                        <a href="tel:+918087579068" class="text-xs text-gray-600 hover:text-[#ea580c] font-semibold flex items-center space-x-2 transition ml-2">
+                            <div class="w-8 h-8 rounded-full bg-orange-100 text-[#ea580c] flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <span>+91 80875 79068</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Bullet Checklist -->
+                    <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-gray-600 font-medium">
+                        <span class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-1.5"></i> 100% Plagiarism-Free (Turnitin)</span>
+                        <span class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-1.5"></i> Q1–Q3 Indexed Scope</span>
+                        <span class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-1.5"></i> Milestone Payments</span>
+                    </div>
+                </div>
+
+                <!-- Right: High-Res Real Image with Floating Interactive Glass Badges (5 cols) -->
+                <div class="lg:col-span-5 relative">
+                    
+                    <!-- Decorative back glow card -->
+                    <div class="absolute -inset-2 bg-gradient-to-r from-amber-400 to-orange-500 rounded-3xl blur-xl opacity-20 -z-10"></div>
+                    
+                    <!-- Main Photography Showcase Container -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
+                        <img src="assets/images/hero-research.jpg" 
+                             alt="Professional Academic Research Collaboration" 
+                             class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Soft warm overlay gradient at bottom -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-white">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md text-[#fbbf24]">
+                                Academic Excellence Hub
+                            </span>
+                            <p class="text-xs font-semibold mt-1 text-white/90">Multidisciplinary Peer-Review Mentorship</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Glass Badge 1 (Top Left) -->
+                    <div class="absolute -top-4 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md p-3 rounded-xl border border-amber-200/80 shadow-xl flex items-center space-x-3 animate-float-slow z-20">
+                        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center text-sm shadow-md">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-extrabold text-gray-900 block leading-tight">500+ Papers</span>
+                            <span class="text-[10px] font-semibold text-gray-500">Scopus & SCI Published</span>
+                        </div>
+                    </div>
+
+                    <!-- Floating Glass Badge 2 (Bottom Right) -->
+                    <div class="absolute -bottom-4 -right-4 sm:-right-6 bg-white/95 backdrop-blur-md p-3 rounded-xl border border-orange-200/80 shadow-xl flex items-center space-x-3 animate-float-lag z-20">
+                        <div class="w-9 h-9 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-sm shadow-md">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-extrabold text-gray-900 block leading-tight">98.4% Success</span>
+                            <span class="text-[10px] font-semibold text-gray-500">First-Round / Revisions</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         OFFICIAL ACADEMIC INDEXING & PUBLISHER LOGOS BAR
+         ("add logos where necessary" - Authentic SVG & Vector Badges)
+    =========================================== -->
+    <div class="bg-white border-b border-gray-100 py-9">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-6">
+                <span class="text-[11px] font-extrabold text-gray-400 uppercase tracking-widest flex items-center justify-center space-x-2">
+                    <span class="w-8 h-px bg-gray-200"></span>
+                    <span>Indexed & Published Across Leading Global Scientific Databases</span>
+                    <span class="w-8 h-px bg-gray-200"></span>
+                </span>
+            </div>
+
+            <!-- Crisp Publisher & Indexing Badges with High-Trust Marks -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3.5 items-center justify-center">
+                
+                <!-- Scopus Logo Mark -->
+                <div class="brand-badge-card group">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 rounded bg-[#ea580c] text-white flex items-center justify-center font-black text-xs">
+                            S
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#ea580c] transition block leading-none">Scopus</span>
+                            <span class="text-[9px] font-semibold text-gray-400">Elsevier</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web of Science Mark -->
+                <div class="brand-badge-card group">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 rounded bg-[#2563eb] text-white flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#2563eb] transition block leading-none">Web of Science</span>
+                            <span class="text-[9px] font-semibold text-gray-400">Clarivate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IEEE Xplore Mark -->
+                <div class="brand-badge-card group">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 rounded bg-[#0284c7] text-white flex items-center justify-center font-bold text-xs">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs font-black tracking-wide text-gray-800 group-hover:text-[#0284c7] transition block leading-none">IEEE Xplore</span>
+                            <span class="text-[9px] font-semibold text-gray-400">Digital Library</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Springer Nature Mark -->
+                <div class="brand-badge-card group">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 rounded bg-[#d97706] text-white flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#d97706] transition block leading-none">Springer</span>
+                            <span class="text-[9px] font-semibold text-gray-400">Nature Series</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elsevier Mark -->
+                <div class="brand-badge-card group">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 rounded bg-[#c2410c] text-white flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-tree"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#c2410c] transition block leading-none">Elsevier</span>
+                            <span class="text-[9px] font-semibold text-gray-400">ScienceDirect</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PubMed Central Mark -->
+                <div class="brand-badge-card group">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 rounded bg-[#0d9488] text-white flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-dna"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#0d9488] transition block leading-none">PubMed</span>
+                            <span class="text-[9px] font-semibold text-gray-400">NLM / NIH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UGC-CARE Mark -->
+                <div class="brand-badge-card group">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 rounded bg-[#7c3aed] text-white flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#7c3aed] transition block leading-none">UGC-CARE</span>
+                            <span class="text-[9px] font-semibold text-gray-400">Group I & II</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         4 VALUE PILLARS (REPLACED CHEAP BLUE ICONS)
+         (Clean, Luxury White Cards with Warm Sunset Gradient Accents)
+    =========================================== -->
+    <section class="py-14 bg-[#ffffff]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-[#ea580c] block mb-1">
+                    Quality Benchmarks
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900">
+                    Why Researchers Choose Rubrixx
+                </h2>
+                <p class="text-xs text-gray-500 mt-2">
+                    Academic integrity, statistical precision, and timely delivery for every manuscript.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Pillar 1 -->
+                <div class="card-warm-lift p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-13 h-13 w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#fbbf24] via-[#f59e0b] to-[#ea580c] text-white flex items-center justify-center text-xl mb-5 shadow-lg shadow-orange-500/20">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900 mb-2">Quality Research Support</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            Methodological rigor, structural coherence, and perfect alignment with target journal guidelines and scope.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3.5 border-t border-gray-100 flex items-center justify-between text-[11px] font-bold text-[#ea580c]">
+                        <span>Q1–Q4 Benchmarked</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="card-warm-lift p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#fbbf24] via-[#f59e0b] to-[#ea580c] text-white flex items-center justify-center text-xl mb-5 shadow-lg shadow-orange-500/20">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900 mb-2">Subject Matter Expertise</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            PhD-level mentors and journal peer-reviewers across Computer Science, AI, Medicine, Engineering, and Business.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3.5 border-t border-gray-100 flex items-center justify-between text-[11px] font-bold text-[#ea580c]">
+                        <span>45+ Specialized Domains</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="card-warm-lift p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#fbbf24] via-[#f59e0b] to-[#ea580c] text-white flex items-center justify-center text-xl mb-5 shadow-lg shadow-orange-500/20">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900 mb-2">Ethical & Transparent</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            Strict zero-plagiarism protocol. Verified Turnitin/iThenticate similarity reports (&lt;10%) provided with every paper.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3.5 border-t border-gray-100 flex items-center justify-between text-[11px] font-bold text-emerald-600">
+                        <span class="flex items-center"><i class="fa-solid fa-circle-check text-xs mr-1"></i> Originality Certified</span>
+                        <i class="fa-solid fa-shield-check text-[10px]"></i>
+                    </div>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="card-warm-lift p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#fbbf24] via-[#f59e0b] to-[#ea580c] text-white flex items-center justify-center text-xl mb-5 shadow-lg shadow-orange-500/20">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <h3 class="text-base font-extrabold text-gray-900 mb-2">On-Time Delivery</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            Structured milestone stages with weekly review syncs, meeting your university and conference deadlines consistently.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-3.5 border-t border-gray-100 flex items-center justify-between text-[11px] font-bold text-[#ea580c]">
+                        <span>Milestone Tracking</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         NEW VISUAL CAPABILITIES SHOWCASE SECTION
+         ("add more images and good beautiful animations")
+         Features: research-analytics.jpg & peer-review-mentorship.jpg
+    =========================================== -->
+    <section id="showcase" class="py-16 md:py-24 bg-[#fffdfa] border-y border-orange-100/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#ea580c] mb-1 block">
+                    Advanced Research Laboratory & Editorial Desk
+                </span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 title-warm-underline">
+                    Scientific Precision at Every Stage
+                </h2>
+                <p class="text-gray-500 text-sm mt-4">
+                    Explore how our dedicated research laboratory and senior academic editors bridge the gap between experimental data and high-impact Q1 journal publications.
+                </p>
+            </div>
+
+            <!-- Feature 1: Data Analytics & Computational Modeling -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+                <!-- Image Side (6 cols) -->
+                <div class="lg:col-span-6 relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-amber-400 to-orange-500 rounded-2xl blur-lg opacity-25 group-hover:opacity-40 transition duration-500"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white">
+                        <img src="assets/images/research-analytics.jpg" 
+                             alt="Academic Scientific Data Analytics Laboratory" 
+                             class="w-full h-80 sm:h-96 object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-white">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-orange-600/90 text-white px-2.5 py-1 rounded-md">
+                                Computational Analytics Lab
+                            </span>
+                            <h4 class="text-sm font-bold mt-1 text-white">Multi-Screen Statistical Computing & AI Architecture</h4>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-5 -right-3 sm:-right-5 bg-white p-3.5 rounded-xl border border-orange-200 shadow-xl flex items-center space-x-3 animate-float-slow">
+                        <div class="w-10 h-10 rounded-lg bg-orange-50 text-[#ea580c] flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-gray-900 block leading-tight">300+ DPI Plots</span>
+                            <span class="text-[10px] font-semibold text-gray-500">Vector Graphs & Heatmaps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side (6 cols) -->
+                <div class="lg:col-span-6 lg:pl-6">
+                    <div class="inline-flex items-center space-x-2 bg-orange-50 text-[#ea580c] text-xs font-extrabold px-3 py-1 rounded-full mb-3">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span>Empirical Rigor</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4 leading-tight">
+                        Advanced Statistical Analysis & Machine Learning Modeling
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        Journal editors and peer reviewers reject over 60% of papers due to weak statistical justification or flawed methodology. Our data scientists transform raw datasets into clear, reproducible, and mathematically rigorous findings.
+                    </p>
+
+                    <!-- Feature Points -->
+                    <div class="space-y-3.5 mb-8 text-xs text-gray-700">
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-900">Multi-Tool Computational Pipeline:</strong>
+                                <span> SPSS, R Studio, Python (scikit-learn, PyTorch), MATLAB, and STATA with full reproducible script logs provided.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-900">Publication-Grade Vector Visualizations:</strong>
+                                <span> Publication-compliant high-resolution figures, correlation matrices, ROC curves, and confusion matrices formatted to target journal DPI.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-900">Hypothesis Testing & Validation:</strong>
+                                <span> ANOVA, MANOVA, regression, structural equation modeling (SEM), and k-fold cross-validation with statistical significance analysis.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-sunset text-xs uppercase tracking-wider">
+                        <span>Discuss Your Data Analysis</span>
+                        <i class="fa-solid fa-arrow-right text-[11px] ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Feature 2: Senior Peer-Review Mentorship & Line-by-Line Polishing -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Side (6 cols) -->
+                <div class="lg:col-span-6 order-2 lg:order-1 lg:pr-6">
+                    <div class="inline-flex items-center space-x-2 bg-amber-50 text-[#d97706] text-xs font-extrabold px-3 py-1 rounded-full mb-3">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span>Editorial Excellence</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4 leading-tight">
+                        One-on-One Peer-Review Mentorship & LaTeX Precision
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        Work directly with senior academic mentors who have served on editorial boards of leading Springer, IEEE, and Elsevier journals. We review your draft line-by-line, ensuring flawless academic English, crisp novelty framing, and adherence to author guidelines.
+                    </p>
+
+                    <!-- Feature Points -->
+                    <div class="space-y-3.5 mb-8 text-xs text-gray-700">
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-900">Pre-Submission Mock Peer-Review:</strong>
+                                <span> Rigorous assessment replicating the exact criteria used by top-tier journal editors to preemptively eliminate potential reviewer objections.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-900">LaTeX / Overleaf Typesetting:</strong>
+                                <span> Camera-ready typesetting in IEEEtran, Springer LNCS, Elsevier CAS, or Nature style templates with clean BibTeX bibliography.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs mr-3 mt-0.5 flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <strong class="text-gray-900">Reviewer Response Matrix (Rebuttal):</strong>
+                                <span> Point-by-point rebuttal strategy and tracked changes drafting to address reviewer critiques respectfully and decisively.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-warm-outline text-xs uppercase tracking-wider">
+                        <span>Request Editorial Review</span>
+                        <i class="fa-solid fa-arrow-right text-[11px] ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Image Side (6 cols) -->
+                <div class="lg:col-span-6 order-1 lg:order-2 relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-orange-400 to-amber-500 rounded-2xl blur-lg opacity-25 group-hover:opacity-40 transition duration-500"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white">
+                        <img src="assets/images/peer-review-mentorship.jpg" 
+                             alt="Academic Peer Review Mentorship and Editorial Collaboration" 
+                             class="w-full h-80 sm:h-96 object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-white">
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-white px-2.5 py-1 rounded-md">
+                                Editorial Mentorship Desk
+                            </span>
+                            <h4 class="text-sm font-bold mt-1 text-white">Line-by-Line Academic Scrutiny & Author Guidance</h4>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -top-5 -left-3 sm:-left-5 bg-white p-3.5 rounded-xl border border-amber-200 shadow-xl flex items-center space-x-3 animate-float-lag">
+                        <div class="w-10 h-10 rounded-lg bg-amber-50 text-[#d97706] flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-feather-pointed"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-black text-gray-900 block leading-tight">Native English</span>
+                            <span class="text-[10px] font-semibold text-gray-500">Academic Tone & Clarity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         COMPUTATIONAL RESEARCH TOOLS & TECHNOLOGIES
+         (Added Logos where necessary: Python, R, SPSS, MATLAB, LaTeX, Turnitin)
+    =========================================== -->
+    <div class="bg-white py-10 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Specialized Computational Tools</span>
+                    <h3 class="text-base font-extrabold text-gray-900">Supported Research Software & Frameworks</h3>
+                </div>
+
+                <!-- Tools Logos Grid -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-bold text-gray-700">
+                        <i class="fa-brands fa-python text-blue-600 text-sm"></i>
+                        <span>Python (NumPy, PyTorch)</span>
+                    </span>
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-bold text-gray-700">
+                        <i class="fa-brands fa-r-project text-blue-500 text-sm"></i>
+                        <span>R & ggplot2</span>
+                    </span>
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-bold text-gray-700">
+                        <i class="fa-solid fa-chart-pie text-red-500 text-sm"></i>
+                        <span>IBM SPSS</span>
+                    </span>
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-bold text-gray-700">
+                        <i class="fa-solid fa-code text-orange-600 text-sm"></i>
+                        <span>MATLAB & Simulink</span>
+                    </span>
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-bold text-gray-700">
+                        <i class="fa-solid fa-file-code text-emerald-600 text-sm"></i>
+                        <span>LaTeX & Overleaf</span>
+                    </span>
+                    <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200/80 text-xs font-bold text-gray-700">
+                        <i class="fa-solid fa-shield-virus text-indigo-600 text-sm"></i>
+                        <span>Turnitin / iThenticate</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         OUR SERVICES SECTION (Visual Cards Matching Rubrixx Style)
+         (demo.html lines 136-226)
+    =========================================== -->
+    <section id="services" class="py-16 md:py-24 bg-[#ffffff]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header with Category Tabs -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-[#ea580c] mb-1">
+                        Comprehensive Academic Suite
+                    </div>
+                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 title-warm-underline">
+                        Our Research Services
+                    </h2>
+                    <p class="text-gray-500 text-sm mt-3 max-w-xl">
+                        End-to-end guidance or specific modular assistance — tailored precisely to your manuscript stage and research requirements.
+                    </p>
+                </div>
+
+                <!-- Category Pill Tabs -->
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <button onclick="filterServiceCards('all', this)" class="pill-tab active">
+                        All Services
+                    </button>
+                    <button onclick="filterServiceCards('writing', this)" class="pill-tab">
+                        Research Writing
+                    </button>
+                    <button onclick="filterServiceCards('data', this)" class="pill-tab">
+                        Data Analysis
+                    </button>
+                    <button onclick="filterServiceCards('editing', this)" class="pill-tab">
+                        Editing & Polishing
+                    </button>
+                    <button onclick="filterServiceCards('submission', this)" class="pill-tab">
+                        Submission Support
+                    </button>
+                </div>
+            </div>
+
+            <!-- 6 Visual Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="serviceCardsContainer">
+                
+                <!-- Card 1: Full Manuscript Development -->
+                <div class="card-warm-lift flex flex-col justify-between service-block" data-category="writing">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=700" 
+                             alt="Full Manuscript Development" 
+                             class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-[#ea580c] font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-sm">
+                            Writing & Structuring
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-extrabold text-gray-900 text-base mb-2">Full Manuscript Development</h3>
+                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+                                Comprehensive support from research concept to a publication-ready manuscript, structuring your core data, algorithms, and findings.
+                            </p>
+                            <ul class="text-xs space-y-2 text-gray-600 mb-5">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Structure & novelty formulation</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Rigorous technical & mathematical writing</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> High-clarity figures, tables & schematics</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-900">Q1–Q3 Indexed</span>
+                            <a href="#contact" class="text-xs font-bold text-[#ea580c] hover:text-[#c2410c] transition flex items-center space-x-1">
+                                <span>Inquire Now</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Review Article Development -->
+                <div class="card-warm-lift flex flex-col justify-between service-block" data-category="writing">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1507842229451-7f01be7ff612?auto=format&fit=crop&q=80&w=700" 
+                             alt="Review Article Development" 
+                             class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-[#f59e0b] font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-sm">
+                            Literature Synthesis
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-extrabold text-gray-900 text-base mb-2">Review Article Development</h3>
+                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+                                Well-researched, high-citation systematic review articles based on a verified literature base with PRISMA protocol and meta-analysis.
+                            </p>
+                            <ul class="text-xs space-y-2 text-gray-600 mb-5">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#f59e0b] text-[10px] mr-2"></i> Literature search & indexing databases</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#f59e0b] text-[10px] mr-2"></i> Comparative taxonomy & synthesis tables</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#f59e0b] text-[10px] mr-2"></i> Critical research gaps & future agenda</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-900">High Citation Impact</span>
+                            <a href="#contact" class="text-xs font-bold text-[#f59e0b] hover:text-[#ea580c] transition flex items-center space-x-1">
+                                <span>Inquire Now</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Technical Editing & Improvement -->
+                <div class="card-warm-lift flex flex-col justify-between service-block" data-category="editing">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&q=80&w=700" 
+                             alt="Technical Editing & Improvement" 
+                             class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-[#ea580c] font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-sm">
+                            Editing & Formatting
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-extrabold text-gray-900 text-base mb-2">Technical Editing & Improvement</h3>
+                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+                                Enhance your existing manuscript for clarity, academic tone, grammar, and compliance with strict journal author guidelines.
+                            </p>
+                            <ul class="text-xs space-y-2 text-gray-600 mb-5">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Native English polishing & flow</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Technical accuracy & logical progression</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> LaTeX / Overleaf & Word styling</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-900">Camera-Ready Standard</span>
+                            <a href="#contact" class="text-xs font-bold text-[#ea580c] hover:text-[#c2410c] transition flex items-center space-x-1">
+                                <span>Inquire Now</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Data Analysis & Interpretation -->
+                <div class="card-warm-lift flex flex-col justify-between service-block" data-category="data">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=700" 
+                             alt="Data Analysis & Interpretation" 
+                             class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-[#f59e0b] font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-sm">
+                            Quantitative Rigor
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-extrabold text-gray-900 text-base mb-2">Data Analysis & Interpretation</h3>
+                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+                                Statistical computation, machine learning modelling, publication-grade data visualizations, and result discussion drafting.
+                            </p>
+                            <ul class="text-xs space-y-2 text-gray-600 mb-5">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#f59e0b] text-[10px] mr-2"></i> Statistical tools: SPSS, R, Python, MATLAB</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#f59e0b] text-[10px] mr-2"></i> 300+ DPI vector plots & heatmaps</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#f59e0b] text-[10px] mr-2"></i> Quantitative results discussion</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-900">Custom Code Included</span>
+                            <a href="#contact" class="text-xs font-bold text-[#f59e0b] hover:text-[#ea580c] transition flex items-center space-x-1">
+                                <span>Inquire Now</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Journal Selection & Submission -->
+                <div class="card-warm-lift flex flex-col justify-between service-block" data-category="submission">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=700" 
+                             alt="Journal Selection & Submission" 
+                             class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-[#ea580c] font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-sm">
+                            Journal Strategy
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-extrabold text-gray-900 text-base mb-2">Journal Selection & Submission</h3>
+                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+                                Identify ideal Q1-Q4 journals matching your research scope, avoiding predatory publishers, with complete submission portal handling.
+                            </p>
+                            <ul class="text-xs space-y-2 text-gray-600 mb-5">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Scopus & SCI indexing verification</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Cover letter & Highlights drafting</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> ScholarOne / Editorial Manager portal</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-900">Zero Predatory Risk</span>
+                            <a href="#contact" class="text-xs font-bold text-[#ea580c] hover:text-[#c2410c] transition flex items-center space-x-1">
+                                <span>Inquire Now</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Reviewer Response & Revision -->
+                <div class="card-warm-lift flex flex-col justify-between service-block" data-category="submission">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=700" 
+                             alt="Reviewer Response & Revision" 
+                             class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-[#ea580c] font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-sm">
+                            Rebuttal & Revisions
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-extrabold text-gray-900 text-base mb-2">Reviewer Response & Revision Support</h3>
+                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+                                Professional point-by-point rebuttal letters and manuscript revision with tracked changes to satisfy peer-reviewer queries.
+                            </p>
+                            <ul class="text-xs space-y-2 text-gray-600 mb-5">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Point-by-point response matrix</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Tracked changes manuscript updating</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-[#ea580c] text-[10px] mr-2"></i> Additional experiments guidance</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-900">Highest Acceptance Rate</span>
+                            <a href="#contact" class="text-xs font-bold text-[#ea580c] hover:text-[#c2410c] transition flex items-center space-x-1">
+                                <span>Inquire Now</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PRICING PLANS (Q1, Q2, Q3) - WARM WHITE & ORANGE ACCENTS
+         (demo.html lines 228-338)
+    =========================================== -->
+    <section id="pricing" class="py-16 md:py-24 bg-[#fffdf9] border-y border-orange-100/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-12">
+                <div class="text-xs font-bold uppercase tracking-wider text-[#ea580c] mb-1">
+                    Transparent Investment
+                </div>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 title-warm-underline">
+                    Journal Quartile Pricing Plans
+                </h2>
+                <p class="text-gray-500 text-sm mt-3 max-w-2xl">
+                    Transparent pricing based on journal quartile and service scope. <em class="text-gray-400">(Excludes journal APC and taxes where applicable.)</em>
+                </p>
+            </div>
+
+            <!-- 4 Column Grid: Sidebar + Q1 + Q2 + Q3 -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-stretch">
+                
+                <!-- Sidebar: Guidance Note Card -->
+                <div class="bg-gradient-to-br from-[#1c1917] to-[#292524] text-white p-7 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-md">
+                    <div>
+                        <span class="bg-[#ea580c] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-4 inline-block">
+                            Guidance Note
+                        </span>
+                        <h3 class="text-xl font-bold mb-3 text-white leading-snug">Choose the right service for your needs</h3>
+                        <p class="text-xs text-stone-300 leading-relaxed mb-6">
+                            Pricing is tailored according to research complexity, target quartile indexing, and the level of expert intervention required.
+                        </p>
+                        
+                        <div class="space-y-4 border-t border-stone-700 pt-6">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/20 text-[#fbbf24] flex items-center justify-center text-sm">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-white">Peer-Review Quality</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/20 text-[#fbbf24] flex items-center justify-center text-sm">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-white">100% Confidentiality & NDA</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/20 text-[#fbbf24] flex items-center justify-center text-sm">
+                                    <i class="fa-regular fa-clock"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-white">Timely Milestones</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-stone-700">
+                        <a href="tel:+918087579068" class="text-xs text-[#fbbf24] hover:text-white font-bold flex items-center space-x-2 transition">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Call +91 80875 79068</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Q1 Journals Column -->
+                <div class="card-warm-lift rounded-2xl overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-r from-amber-500 to-orange-500 text-white p-5 text-center">
+                        <i class="fa-solid fa-crown text-2xl mb-1 text-white"></i>
+                        <h4 class="font-extrabold text-lg text-white">Q1 Journals</h4>
+                        <p class="text-[11px] text-amber-100">Top-tier journals with highest impact factor</p>
+                    </div>
+                    <div class="p-5 flex-1 text-xs">
+                        <div class="divide-y divide-gray-100">
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Full manuscript development</span><span class="font-bold text-gray-900">₹60,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Review article development</span><span class="font-bold text-gray-900">₹45,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Technical editing & improvement</span><span class="font-bold text-gray-900">₹20,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Data analysis & visualization</span><span class="font-bold text-gray-900">₹20,000 – 40,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Journal selection & submission</span><span class="font-bold text-gray-900">₹8,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Reviewer response & revision</span><span class="font-bold text-gray-900">₹12,000</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-amber-50/70 p-5 border-t border-amber-100 mt-auto">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-bold text-gray-900 text-xs">Complete Package <span class="font-normal text-[10px] text-gray-500">(Full Support)</span></span>
+                            <span class="text-xl font-extrabold text-[#ea580c]">₹75,000</span>
+                        </div>
+                        <p class="text-[10px] text-gray-500 mb-3">(All services included except journal APC)</p>
+                        <a href="#contact" class="btn-sunset w-full text-center text-xs block py-2.5">
+                            Select Q1 Package
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Q2 Journals Column (Featured) -->
+                <div class="card-warm-lift rounded-2xl overflow-hidden flex flex-col relative border-2 border-[#ea580c] shadow-lg">
+                    <span class="absolute top-2 right-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow-sm">
+                        High Demand
+                    </span>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-5 text-center">
+                        <i class="fa-solid fa-medal text-2xl mb-1 text-white"></i>
+                        <h4 class="font-extrabold text-lg text-white">Q2 Journals</h4>
+                        <p class="text-[11px] text-orange-100">Well-respected journals with strong reputation</p>
+                    </div>
+                    <div class="p-5 flex-1 text-xs">
+                        <div class="divide-y divide-gray-100">
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Full manuscript development</span><span class="font-bold text-gray-900">₹40,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Review article development</span><span class="font-bold text-gray-900">₹30,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Technical editing & improvement</span><span class="font-bold text-gray-900">₹15,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Data analysis & visualization</span><span class="font-bold text-gray-900">₹15,000 – 30,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Journal selection & submission</span><span class="font-bold text-gray-900">₹6,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Reviewer response & revision</span><span class="font-bold text-gray-900">₹9,000</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-orange-50/80 p-5 border-t border-orange-100 mt-auto">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-bold text-gray-900 text-xs">Complete Package <span class="font-normal text-[10px] text-gray-500">(Full Support)</span></span>
+                            <span class="text-xl font-extrabold text-[#ea580c]">₹55,000</span>
+                        </div>
+                        <p class="text-[10px] text-gray-500 mb-3">(All services included except journal APC)</p>
+                        <a href="#contact" class="btn-sunset w-full text-center text-xs block py-2.5">
+                            Select Q2 Package
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Q3 Journals Column -->
+                <div class="card-warm-lift rounded-2xl overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-r from-stone-700 to-stone-800 text-white p-5 text-center">
+                        <i class="fa-solid fa-ribbon text-2xl mb-1 text-amber-400"></i>
+                        <h4 class="font-extrabold text-lg text-white">Q3 Journals</h4>
+                        <p class="text-[11px] text-stone-300">Reputed journals with good visibility</p>
+                    </div>
+                    <div class="p-5 flex-1 text-xs">
+                        <div class="divide-y divide-gray-100">
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Full manuscript development</span><span class="font-bold text-gray-900">₹25,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Review article development</span><span class="font-bold text-gray-900">₹20,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Technical editing & improvement</span><span class="font-bold text-gray-900">₹10,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Data analysis & visualization</span><span class="font-bold text-gray-900">₹10,000 – 20,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Journal selection & submission</span><span class="font-bold text-gray-900">₹4,000</span></div>
+                            <div class="py-2.5 flex justify-between"><span class="text-gray-600">Reviewer response & revision</span><span class="font-bold text-gray-900">₹6,000</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-stone-50 p-5 border-t border-stone-200 mt-auto">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <span class="font-bold text-gray-900 text-xs">Complete Package <span class="font-normal text-[10px] text-gray-500">(Full Support)</span></span>
+                            <span class="text-xl font-extrabold text-stone-800">₹40,000</span>
+                        </div>
+                        <p class="text-[10px] text-gray-500 mb-3">(All services included except journal APC)</p>
+                        <a href="#contact" class="btn-sunset w-full text-center text-xs block py-2.5">
+                            Select Q3 Package
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         ADDITIONAL SERVICES & OUR PACKAGES SPLIT
+         (demo.html lines 340-445)
+    =========================================== -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Left: Additional Services On Request -->
+                <div class="lg:col-span-5 bg-white p-7 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-base">Additional Services</h3>
+                                <p class="text-xs text-gray-400">Available modularly on request</p>
+                            </div>
+                            <span class="bg-orange-50 text-[#ea580c] text-xs font-bold px-2.5 py-0.5 rounded-md">
+                                Add-ons
+                            </span>
+                        </div>
+
+                        <div class="divide-y divide-gray-100 text-xs">
+                            <div class="py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-7 h-7 rounded-lg bg-orange-50 text-[#ea580c] flex items-center justify-center text-xs">
+                                        <i class="fa-solid fa-chart-diagram"></i>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">Advanced statistical analysis</span>
+                                </div>
+                                <span class="font-bold text-gray-900">₹10,000 – 25,000+</span>
+                            </div>
+
+                            <div class="py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs">
+                                        <i class="fa-solid fa-brain"></i>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">Machine learning & AI/ML modelling</span>
+                                </div>
+                                <span class="font-bold text-gray-900">₹15,000 – 40,000+</span>
+                            </div>
+
+                            <div class="py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-7 h-7 rounded-lg bg-orange-50 text-[#ea580c] flex items-center justify-center text-xs">
+                                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">Systematic review & meta-analysis</span>
+                                </div>
+                                <span class="font-bold text-gray-900">₹15,000 – 35,000+</span>
+                            </div>
+
+                            <div class="py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs">
+                                        <i class="fa-solid fa-pen-ruler"></i>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">Graphics, illustrations & figure design</span>
+                                </div>
+                                <span class="font-bold text-gray-900">₹5,000 – 15,000+</span>
+                            </div>
+
+                            <div class="py-3.5 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-7 h-7 rounded-lg bg-orange-50 text-[#ea580c] flex items-center justify-center text-xs">
+                                        <i class="fa-solid fa-microscope"></i>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">Subject-specific domain expertise</span>
+                                </div>
+                                <span class="font-bold text-gray-900">₹10,000 – 30,000+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-400 mt-6 pt-4 border-t border-gray-100">Complex projects, large datasets, or specialized medical trials receive tailored quotations.</p>
+                </div>
+
+                <!-- Right: Curated Bundled Packages -->
+                <div class="lg:col-span-7 flex flex-col justify-between">
+                    <div class="mb-3">
+                        <h3 class="font-bold text-gray-900 text-lg">Curated Ready Packages</h3>
+                        <p class="text-xs text-gray-500">Pick a structured bundled package for swift milestone execution.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1 items-stretch">
+                        
+                        <!-- Essential -->
+                        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:border-amber-300 transition">
+                            <div>
+                                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider block">Essential</span>
+                                <div class="text-2xl font-extrabold text-gray-900 mt-1 mb-1">₹25,000+</div>
+                                <p class="text-[11px] text-gray-400 mb-5 pb-3 border-b border-gray-100">Basic writing & editing support</p>
+                                
+                                <ul class="text-xs space-y-2.5 text-gray-600">
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> Manuscript development</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> Journal formatting</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> 1 round of revisions</li>
+                                </ul>
+                            </div>
+                            <a href="#contact" class="mt-8 w-full btn-warm-outline text-xs uppercase tracking-wider text-center block">
+                                Get Started
+                            </a>
+                        </div>
+
+                        <!-- Professional -->
+                        <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between hover:border-amber-300 transition">
+                            <div>
+                                <span class="text-xs font-bold text-[#f59e0b] uppercase tracking-wider block">Professional</span>
+                                <div class="text-2xl font-extrabold text-gray-900 mt-1 mb-1">₹40,000+</div>
+                                <p class="text-[11px] text-gray-400 mb-5 pb-3 border-b border-gray-100">Comprehensive support</p>
+                                
+                                <ul class="text-xs space-y-2.5 text-gray-600">
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> Writing + editing</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> Data analysis (basic)</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> Journal selection</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> 2 rounds of revisions</li>
+                                </ul>
+                            </div>
+                            <a href="#contact" class="mt-8 w-full btn-warm-outline text-xs uppercase tracking-wider text-center block">
+                                Get Started
+                            </a>
+                        </div>
+
+                        <!-- Premium (Most Popular) -->
+                        <div class="bg-white p-6 rounded-2xl border-2 border-[#ea580c] shadow-md flex flex-col justify-between relative">
+                            <span class="absolute -top-3 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-sm">
+                                Most Popular
+                            </span>
+                            <div>
+                                <span class="text-xs font-bold text-[#ea580c] uppercase tracking-wider block">Premium</span>
+                                <div class="text-2xl font-extrabold text-gray-900 mt-1 mb-1">₹60,000+</div>
+                                <p class="text-[11px] text-gray-400 mb-5 pb-3 border-b border-gray-100">End-to-end full partnership</p>
+                                
+                                <ul class="text-xs space-y-2.5 text-gray-600">
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> Full manuscript writing</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> Advanced data modeling</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> High-resolution figures</li>
+                                    <li class="flex items-start"><i class="fa-solid fa-check text-[#ea580c] text-xs mr-2 mt-0.5"></i> Submission & rebuttal</li>
+                                </ul>
+                            </div>
+                            <a href="#contact" class="mt-8 w-full btn-sunset text-xs uppercase tracking-wider text-center block">
+                                Get Started
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5-STEP PROCESS & WHY CHOOSE US
+         (demo.html lines 448-521)
+    =========================================== -->
+    <section id="process" class="py-16 md:py-24 bg-[#fffdf9] border-t border-orange-100/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- 5 Steps Flow (8 cols) -->
+                <div class="lg:col-span-8">
+                    <div class="text-xs font-bold uppercase tracking-wider text-[#ea580c] mb-1">
+                        Step-by-Step Methodology
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 title-warm-underline">
+                        Our Simple 5-Step Process
+                    </h2>
+                    <p class="text-gray-500 text-sm mt-3 mb-10">A clear, collaborative, and structured roadmap to ensure publication excellence.</p>
+
+                    <!-- 5 Clean Step Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-5 gap-3.5">
+                        
+                        <div class="card-warm-lift p-4 flex flex-col items-center text-center">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center font-extrabold text-sm mb-3 shadow-md shadow-orange-500/20">
+                                1
+                            </div>
+                            <h4 class="font-bold text-xs text-gray-900 mb-1">Consultation</h4>
+                            <p class="text-[11px] text-gray-500 leading-normal">Discuss research scope and targets under strict NDA.</p>
+                        </div>
+
+                        <div class="card-warm-lift p-4 flex flex-col items-center text-center">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center font-extrabold text-sm mb-3 shadow-md shadow-orange-500/20">
+                                2
+                            </div>
+                            <h4 class="font-bold text-xs text-gray-900 mb-1">Proposal & Quote</h4>
+                            <p class="text-[11px] text-gray-500 leading-normal">Clear milestone roadmap and transparent pricing.</p>
+                        </div>
+
+                        <div class="card-warm-lift p-4 flex flex-col items-center text-center">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center font-extrabold text-sm mb-3 shadow-md shadow-orange-500/20">
+                                3
+                            </div>
+                            <h4 class="font-bold text-xs text-gray-900 mb-1">Research & Writing</h4>
+                            <p class="text-[11px] text-gray-500 leading-normal">Expert drafting, data analysis, and weekly syncs.</p>
+                        </div>
+
+                        <div class="card-warm-lift p-4 flex flex-col items-center text-center">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center font-extrabold text-sm mb-3 shadow-md shadow-orange-500/20">
+                                4
+                            </div>
+                            <h4 class="font-bold text-xs text-gray-900 mb-1">Review & Revision</h4>
+                            <p class="text-[11px] text-gray-500 leading-normal">Incorporate feedback and similarity check report.</p>
+                        </div>
+
+                        <div class="card-warm-lift p-4 flex flex-col items-center text-center">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center font-extrabold text-sm mb-3 shadow-md shadow-orange-500/20">
+                                5
+                            </div>
+                            <h4 class="font-bold text-xs text-gray-900 mb-1">Submission</h4>
+                            <p class="text-[11px] text-gray-500 leading-normal">Journal portal upload and reviewer rebuttal support.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Why Choose Us Box (4 cols) -->
+                <div class="lg:col-span-4 bg-[#fffaf5] p-7 rounded-2xl border border-orange-200/80 shadow-sm">
+                    <h3 class="font-extrabold text-gray-900 text-base mb-4 flex items-center space-x-2">
+                        <i class="fa-solid fa-shield-heart text-[#ea580c]"></i>
+                        <span>Why Choose Rubrixx?</span>
+                    </h3>
+                    <ul class="space-y-3.5 text-xs text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-[#ea580c] text-xs mr-2.5 mt-0.5"></i>
+                            <span><strong>Experienced PhD professionals</strong> with active journal review experience.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-[#ea580c] text-xs mr-2.5 mt-0.5"></i>
+                            <span><strong>Ethical & 100% plagiarism-free</strong> with certified Turnitin reports.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-[#ea580c] text-xs mr-2.5 mt-0.5"></i>
+                            <span><strong>Strict focus on mathematical rigor</strong>, clarity, and reproducible results.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-[#ea580c] text-xs mr-2.5 mt-0.5"></i>
+                            <span><strong>Flexible milestone payments</strong> tied to deliverable review stages.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-[#ea580c] text-xs mr-2.5 mt-0.5"></i>
+                            <span><strong>Dedicated research advisor</strong> with continuous support till acceptance.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TESTIMONIALS SECTION
+         (demo.html lines 524-561)
+    =========================================== -->
+    <section id="testimonials" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <div class="text-xs font-bold uppercase tracking-wider text-[#ea580c] mb-1">
+                    Scholars' Feedback
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 title-warm-underline">
+                    What Our Researchers Say
+                </h2>
+                <p class="text-gray-500 text-sm mt-3">Trusted by PhD scholars, faculty, and international researchers worldwide.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="card-warm-lift p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-500 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 font-bold ml-1 text-[11px]">(Q1 IEEE Published)</span>
+                        </div>
+                        <p class="text-xs text-gray-600 italic leading-relaxed mb-6">"Excellent support in converting my raw algorithms into a high-quality manuscript. The team's subject knowledge and prompt revision responses were outstanding."</p>
+                    </div>
+                    <div class="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=140" alt="Dr. Ananya S." class="w-11 h-11 rounded-full object-cover border-2 border-orange-200">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xs">Dr. Ananya S.</h4>
+                            <p class="text-[10px] text-gray-400">PhD Scholar, Research Institute (Delhi)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="card-warm-lift p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-500 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 font-bold ml-1 text-[11px]">(Elsevier Published)</span>
+                        </div>
+                        <p class="text-xs text-gray-600 italic leading-relaxed mb-6">"Their statistical data analysis and LaTeX drafting significantly improved the quality of my paper. I highly recommend Rubrixx to any serious researcher."</p>
+                    </div>
+                    <div class="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=140" alt="Prof. R. Kumar" class="w-11 h-11 rounded-full object-cover border-2 border-orange-200">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xs">Prof. R. Kumar</h4>
+                            <p class="text-[10px] text-gray-400">Associate Professor, Department of CSE</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="card-warm-lift p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-500 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 font-bold ml-1 text-[11px]">(Springer Nature Published)</span>
+                        </div>
+                        <p class="text-xs text-gray-600 italic leading-relaxed mb-6">"Professional, responsive, and reliable. The reviewer rebuttal support helped address two tough reviewer queries cleanly. Accepted in 4 months!"</p>
+                    </div>
+                    <div class="flex items-center space-x-3.5 pt-4 border-t border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=140" alt="Dr. Meera T." class="w-11 h-11 rounded-full object-cover border-2 border-orange-200">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-xs">Dr. Meera T.</h4>
+                            <p class="text-[10px] text-gray-400">Faculty & Researcher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CALL TO ACTION BANNER (Sunset Glow Card)
+         (Clean, Spacious, NO form clutter!)
+    =========================================== -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+        <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+            
+            <div class="relative z-10 flex items-center space-x-5">
+                <div class="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-3xl text-white hidden sm:flex flex-shrink-0 shadow-inner">
+                    <i class="fa-regular fa-envelope-open"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Ready to Publish Your Research?</h3>
+                    <p class="text-xs sm:text-sm text-white/95 mt-1 max-w-xl leading-relaxed">
+                        Get a complimentary consultation and personalized publication roadmap from senior academic advisors under a mutual Non-Disclosure Agreement (NDA).
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative z-10 flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+                <a href="mailto:info@rubrixx.com?subject=Research%20Service%20Inquiry" class="bg-white text-[#ea580c] hover:bg-orange-50 font-extrabold text-xs uppercase tracking-wider px-7 py-4 rounded-xl shadow-lg transition whitespace-nowrap w-full sm:w-auto text-center hover:scale-105">
+                    Contact Us via Email
+                </a>
+                
+                <div class="flex items-center space-x-5 text-xs text-white/95">
+                    <a href="tel:+918087579068" class="flex items-center space-x-2 hover:text-[#fef08a] transition font-bold">
+                        <i class="fa-solid fa-phone text-sm"></i>
+                        <span>+91 80875 79068</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PINK FOOTER SECTION
+         (Requested: "with a pink footer section also add logos where necessary")
+         Includes Brand, Links, Trust Badges, and Copyright
+    =========================================== -->
+    <footer class="footer-pink-theme text-pink-100 text-xs pt-16 pb-12 border-t border-pink-700/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-pink-600/40">
+                
+                <!-- Col 1: Rubrixx Brand & Mission (4 cols) -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 to-orange-400 flex items-center justify-center text-white text-lg shadow-md">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-black tracking-tight text-white block leading-none">
+                                Rubrixx <span class="text-amber-300">IT Solutions</span>
+                            </span>
+                            <span class="text-[10px] font-bold tracking-widest text-pink-200 uppercase">RESEARCH & TECHNOLOGY</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-pink-100/85 leading-relaxed pr-4">
+                        Rubrixx IT Solutions delivers enterprise technology development, agile AI/ML solutions, and end-to-end scientific research support helping scholars publish in top-tier international journals worldwide.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-pink-900/60 hover:bg-white hover:text-pink-900 flex items-center justify-center transition" title="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-pink-900/60 hover:bg-white hover:text-pink-900 flex items-center justify-center transition" title="Twitter"><i class="fa-brands fa-x-twitter text-xs"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-pink-900/60 hover:bg-white hover:text-pink-900 flex items-center justify-center transition" title="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-pink-900/60 hover:bg-white hover:text-pink-900 flex items-center justify-center transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Company Navigation (2 cols) -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Company</h4>
+                    <ul class="space-y-2.5 text-pink-100/90 text-xs">
+                        <li><a href="https://www.rubrixx.com/" class="hover:text-white transition">Home</a></li>
+                        <li><a href="https://www.rubrixx.com/about-us.php" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="https://www.rubrixx.com/contact-us.php" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="https://www.rubrixx.com/clients.php" class="hover:text-white transition">Our Clients</a></li>
+                        <li><a href="https://www.rubrixx.com/training.php" class="hover:text-white transition">Industrial Training</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: IT Services (3 cols) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">IT Services</h4>
+                    <ul class="space-y-2.5 text-pink-100/90 text-xs">
+                        <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Salesforce-Development" class="hover:text-white transition">Salesforce Development</a></li>
+                        <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Android-Development" class="hover:text-white transition">Android App Development</a></li>
+                        <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Website-Development" class="hover:text-white transition">Website Development</a></li>
+                        <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=AI-and-ML-Services" class="hover:text-white transition">AI & Machine Learning</a></li>
+                        <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Cloud-Migration-Services" class="hover:text-white transition">Cloud Migration Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Research Support & Direct Contacts (3 cols) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Research Services</h4>
+                    <ul class="space-y-2.5 text-pink-100/90 text-xs mb-4">
+                        <li><a href="#services" class="hover:text-white transition">Full Manuscript Development</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Review Articles & PRISMA</a></li>
+                        <li><a href="#services" class="hover:text-white transition">SPSS & Python Data Analysis</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Q1, Q2, Q3 Journal Plans</a></li>
+                    </ul>
+
+                    <div class="space-y-1.5 pt-3 border-t border-pink-700/60 text-xs">
+                        <p class="flex items-center space-x-2 text-white">
+                            <i class="fa-solid fa-phone text-amber-300"></i>
+                            <a href="tel:+918087579068" class="hover:text-amber-200 transition">+91 80875 79068</a>
+                        </p>
+                        <p class="flex items-center space-x-2 text-white">
+                            <i class="fa-solid fa-envelope text-amber-300"></i>
+                            <a href="mailto:info@rubrixx.com" class="hover:text-amber-200 transition">info@rubrixx.com</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Trust Badges & Logos in Footer -->
+            <div class="py-8 border-b border-pink-600/30 flex flex-wrap items-center justify-between gap-6 text-[11px] text-pink-200/90">
+                <span class="font-bold text-white uppercase tracking-wider">Quality & Security Compliance:</span>
+                <div class="flex flex-wrap items-center gap-4">
+                    <span class="inline-flex items-center space-x-1.5 bg-pink-900/50 px-3 py-1 rounded-md border border-pink-600/40">
+                        <i class="fa-solid fa-certificate text-amber-300"></i>
+                        <span>ISO 9001:2015 Certified</span>
+                    </span>
+                    <span class="inline-flex items-center space-x-1.5 bg-pink-900/50 px-3 py-1 rounded-md border border-pink-600/40">
+                        <i class="fa-solid fa-shield-halved text-emerald-300"></i>
+                        <span>Turnitin Verified &lt;10%</span>
+                    </span>
+                    <span class="inline-flex items-center space-x-1.5 bg-pink-900/50 px-3 py-1 rounded-md border border-pink-600/40">
+                        <i class="fa-solid fa-book-bookmark text-amber-300"></i>
+                        <span>COPE Ethical Compliance</span>
+                    </span>
+                    <span class="inline-flex items-center space-x-1.5 bg-pink-900/50 px-3 py-1 rounded-md border border-pink-600/40">
+                        <i class="fa-solid fa-lock text-emerald-300"></i>
+                        <span>256-Bit SSL Encrypted</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Bottom Legal & Copyright -->
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-pink-200/80 gap-4">
+                <div>
+                    © 2026 <strong class="text-white">Rubrixx IT Solutions</strong>. All Rights Reserved.
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <a href="https://www.rubrixx.com/privacy-policy.php" class="hover:text-white transition">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="https://www.rubrixx.com/terms.php" class="hover:text-white transition">Terms & Conditions</a>
+                    <span>•</span>
+                    <a href="https://www.rubrixx.com/refund-policy.php" class="hover:text-white transition">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script for Service Filtering, Mobile Nav & Animations -->
+    <script>
+        // Mobile Navigation Drawer Toggle
+        const navBtn = document.getElementById('mobileNavButton');
+        const mobileMenu = document.getElementById('mobileDropdown');
+        const iconBars = document.getElementById('navIconBars');
+
+        if (navBtn && mobileMenu) {
+            navBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    iconBars.classList.remove('fa-xmark');
+                    iconBars.classList.add('fa-bars');
+                } else {
+                    iconBars.classList.remove('fa-bars');
+                    iconBars.classList.add('fa-xmark');
+                }
+            });
+        }
+
+        // Service Category Filtering
+        function filterServiceCards(category, btnElement) {
+            document.querySelectorAll('.pill-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            btnElement.classList.add('active');
+
+            const blocks = document.querySelectorAll('.service-block');
+            blocks.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Scroll Reveal Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.card-warm-lift, .brand-badge-card').forEach(el => {
+                el.classList.add('reveal-element');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

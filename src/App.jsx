@@ -1,0 +1,1045 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Phone, Mail, Clock, ArrowRight, ArrowDown, CheckCircle2, Award, 
+  ShieldCheck, Target, FileText, BarChart3, BookOpen, 
+  MessageSquare, ChevronDown, ChevronUp, Star, Menu, X,
+  Dna, Cpu, GraduationCap, Lock, Check, Globe, MapPin
+} from 'lucide-react';
+
+export default function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [expandedFaq, setExpandedFaq] = useState(null);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 5000);
+  };
+
+  // Service data
+  const services = [
+    {
+      id: 1,
+      category: 'writing',
+      badge: 'Writing & Structuring',
+      badgeColor: 'text-[#611b45] bg-pink-50',
+      title: 'Full Manuscript Development',
+      image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=700',
+      description: 'Comprehensive support from research concept to a publication-ready manuscript, structuring your core data, algorithms, and findings.',
+      features: [
+        'Structure & novelty formulation',
+        'Rigorous technical & mathematical writing',
+        'High-clarity figures, tables & schematics'
+      ],
+      tier: 'Q1–Q3 Indexed Scope'
+    },
+    {
+      id: 2,
+      category: 'writing',
+      badge: 'Literature Synthesis',
+      badgeColor: 'text-[#ea580c] bg-orange-50',
+      title: 'Review Article Development',
+      image: 'https://images.unsplash.com/photo-1507842229451-7f01be7ff612?auto=format&fit=crop&q=80&w=700',
+      description: 'Well-researched, high-citation systematic review articles based on a verified literature base with PRISMA protocol and meta-analysis.',
+      features: [
+        'Literature search & indexing databases',
+        'Comparative taxonomy & synthesis tables',
+        'Critical research gaps & future agenda'
+      ],
+      tier: 'High Citation Impact'
+    },
+    {
+      id: 3,
+      category: 'editing',
+      badge: 'Editing & Formatting',
+      badgeColor: 'text-[#611b45] bg-pink-50',
+      title: 'Technical Editing & Improvement',
+      image: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&q=80&w=700',
+      description: 'Enhance your existing manuscript for clarity, academic tone, grammar, and compliance with strict journal author guidelines.',
+      features: [
+        'Native English polishing & flow',
+        'Technical accuracy & logical progression',
+        'LaTeX / Overleaf & Word styling'
+      ],
+      tier: 'Camera-Ready Standard'
+    },
+    {
+      id: 4,
+      category: 'data',
+      badge: 'Quantitative Rigor',
+      badgeColor: 'text-[#ea580c] bg-orange-50',
+      title: 'Data Analysis & Interpretation',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=700',
+      description: 'Statistical computation, machine learning modelling, publication-grade data visualizations, and result discussion drafting.',
+      features: [
+        'Statistical tools: SPSS, R, Python, MATLAB',
+        '300+ DPI vector plots & heatmaps',
+        'Quantitative results discussion'
+      ],
+      tier: 'Custom Code Included'
+    },
+    {
+      id: 5,
+      category: 'submission',
+      badge: 'Journal Strategy',
+      badgeColor: 'text-[#611b45] bg-pink-50',
+      title: 'Journal Selection & Submission',
+      image: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=700',
+      description: 'Identify ideal Q1-Q4 journals matching your research scope, avoiding predatory publishers, with complete submission portal handling.',
+      features: [
+        'Scopus & SCI indexing verification',
+        'Cover letter & Highlights drafting',
+        'ScholarOne / Editorial Manager portal'
+      ],
+      tier: 'Zero Predatory Risk'
+    },
+    {
+      id: 6,
+      category: 'submission',
+      badge: 'Rebuttal & Revisions',
+      badgeColor: 'text-[#ea580c] bg-orange-50',
+      title: 'Reviewer Response & Revision Support',
+      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=700',
+      description: 'Professional point-by-point rebuttal letters and manuscript revision with tracked changes to satisfy peer-reviewer queries.',
+      features: [
+        'Point-by-point response matrix',
+        'Tracked changes manuscript updating',
+        'Additional experiments guidance'
+      ],
+      tier: 'Highest Acceptance Rate'
+    }
+  ];
+
+  const filteredServices = activeCategory === 'all' 
+    ? services 
+    : services.filter(s => s.category === activeCategory);
+
+  const faqs = [
+    {
+      q: 'What is the typical turnaround time for manuscript development?',
+      a: 'Full manuscript drafting typically requires 3 to 5 weeks depending on domain complexity, data availability, and required statistical simulations. Fast-track options (10-14 business days) are available for urgent university deadlines.'
+    },
+    {
+      q: 'How do you guarantee research integrity and plagiarism compliance?',
+      a: 'We operate under a strict zero-plagiarism mandate. Every manuscript includes a verified Turnitin or iThenticate similarity report (<10% similarity score) and full source reproducibility code.'
+    },
+    {
+      q: 'Do you guarantee publication in Q1 or Q2 journals?',
+      a: 'While final acceptance is determined by peer-reviewers and journal editors, our rigorous methodology, journal alignment, and pre-submission mock reviews achieve an industry-leading 98.4% first-round or revision acceptance rate.'
+    },
+    {
+      q: 'How do milestone payments work?',
+      a: 'Projects are structured in 3 clear milestones: (1) Initial research outline & methodology approval, (2) Draft manuscript & data visualization delivery, and (3) Final camera-ready submission with Turnitin certificate.'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-gray-800 flex flex-col font-sans">
+      
+      {/* ==========================================
+          TOPBAR (Exact Rubrixx Dark Slate Theme)
+      =========================================== */}
+      <div className="bg-[#0b1325] border-b border-[#17253d] text-xs py-2 text-stone-300 hidden lg:block">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <ul className="flex items-center space-x-7">
+            <li className="flex items-center space-x-2">
+              <Phone className="w-3.5 h-3.5 text-[#ffcc00]" />
+              <a href="tel:+918087579068" className="font-medium hover:text-[#ffcc00] transition">+918087579068</a>
+            </li>
+            <li className="flex items-center space-x-2">
+              <Mail className="w-3.5 h-3.5 text-[#ffcc00]" />
+              <a href="mailto:info@rubrixx.com" className="font-medium hover:text-[#ffcc00] transition">info@rubrixx.com</a>
+            </li>
+            <li className="flex items-center space-x-2 text-stone-400">
+              <Clock className="w-3.5 h-3.5 text-[#ffcc00]" />
+              <span>Hours:9:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+
+          <div className="flex items-center space-x-4 text-stone-300">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffcc00] transition"><i className="fab fa-facebook-f text-xs"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffcc00] transition"><i className="fab fa-twitter text-xs"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffcc00] transition"><i className="fab fa-instagram text-xs"></i></a>
+          </div>
+        </div>
+      </div>
+
+      {/* ==========================================
+          NAVBAR (Exact Rubrixx Navy Blue Theme)
+      =========================================== */}
+      <header className="bg-gradient-to-r from-[#0c1c38] via-[#102447] to-[#0c1c38] border-b border-[#1b345f] sticky top-0 z-50 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          
+          {/* Rubrixx Brand Logo with Signature Cloud & Trailing Speed Lines */}
+          <a href="https://www.rubrixx.com/" className="flex items-center space-x-3 group">
+            <div className="relative flex items-center">
+              {/* Cloud vector SVG with speed lines */}
+              <div className="w-12 h-10 flex items-center justify-center">
+                <svg viewBox="0 0 100 65" className="w-full h-full fill-none">
+                  {/* Speed lines */}
+                  <line x1="5" y1="32" x2="30" y2="32" stroke="#ea580c" strokeWidth="4" strokeLinecap="round" />
+                  <line x1="10" y1="42" x2="25" y2="42" stroke="#ea580c" strokeWidth="4" strokeLinecap="round" />
+                  <line x1="12" y1="22" x2="28" y2="22" stroke="#ea580c" strokeWidth="4" strokeLinecap="round" />
+                  {/* Cloud Body */}
+                  <path d="M72 50 H38 C28 50 20 42 20 32 C20 23 27 16 35 15 C39 8 47 4 56 4 C67 4 76 11 79 21 C85 22 90 27 90 33 C90 42 82 50 72 50 Z" 
+                        fill="url(#cloudGrad)" />
+                  <defs>
+                    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#f59e0b" />
+                      <stop offset="50%" stopColor="#ea580c" />
+                      <stop offset="100%" stopColor="#dc2626" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div className="ml-1">
+                <span className="text-2xl font-black tracking-tight block leading-none font-sans">
+                  <span className="text-[#ea580c]">R</span><span className="text-white">ubrixx</span>
+                </span>
+                <span className="text-[9px] font-bold tracking-widest text-[#f59e0b] uppercase block">IT SOLUTIONS</span>
+              </div>
+            </div>
+          </a>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center space-x-7 text-xs font-bold text-white uppercase tracking-wider">
+            <a href="https://www.rubrixx.com/" className="hover:text-[#ffcc00] transition">Home</a>
+            <a href="https://www.rubrixx.com/about-us.php" className="hover:text-[#ffcc00] transition">About Us</a>
+            <a href="https://www.rubrixx.com/services.php" className="hover:text-[#ffcc00] transition">Services</a>
+            <a href="#services" className="text-[#ffcc00] border-b-2 border-[#ffcc00] pb-1">Research Services</a>
+            <a href="https://www.rubrixx.com/training.php" className="hover:text-[#ffcc00] transition">Industrial Training & Internship</a>
+            <a href="#contact" className="hover:text-[#ffcc00] transition">Contact Us</a>
+          </nav>
+
+          {/* Exact Rubrixx "Get A Quote" Yellow Rectangle Button */}
+          <div className="hidden sm:block">
+            <a 
+              href="#contact" 
+              className="bg-[#ffcc00] hover:bg-[#e6b800] text-black font-extrabold text-xs uppercase px-5 py-2.5 rounded-md shadow transition tracking-wider inline-flex items-center"
+            >
+              Get A Quote
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+            className="lg:hidden p-2 rounded-lg text-white hover:bg-[#1a3560] focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Dropdown */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-[#0c1c38] border-b border-[#1b345f] px-4 py-4 space-y-3 text-xs font-bold text-white uppercase"
+            >
+              <a href="https://www.rubrixx.com/" className="block py-1 hover:text-[#ffcc00]">Home</a>
+              <a href="https://www.rubrixx.com/about-us.php" className="block py-1 hover:text-[#ffcc00]">About Us</a>
+              <a href="https://www.rubrixx.com/services.php" className="block py-1 hover:text-[#ffcc00]">Services</a>
+              <a href="#services" className="block py-1 text-[#ffcc00]">Research Services</a>
+              <a href="https://www.rubrixx.com/training.php" className="block py-1 hover:text-[#ffcc00]">Industrial Training & Internship</a>
+              <a href="#contact" className="block py-1 hover:text-[#ffcc00]">Contact Us</a>
+              <div className="pt-2">
+                <a href="#contact" className="bg-[#ffcc00] text-black w-full text-center py-2.5 rounded-md block font-extrabold">
+                  Get A Quote
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* ==========================================
+          SIGNATURE RUBRIXX HERO BANNER
+          (Exact Deep Blue Glossy Style from all 5 screenshots)
+      =========================================== */}
+      <section className="relative bg-gradient-to-r from-[#0a1931] via-[#112d59] to-[#0a1931] py-16 md:py-24 overflow-hidden border-b border-[#19396e]">
+        {/* Subtle abstract background networking wave from screenshots */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20 pointer-events-none bg-no-repeat bg-right"
+             style={{ backgroundImage: `radial-gradient(circle at right, rgba(255,255,255,0.2) 0%, transparent 60%)` }}>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Giant Bold White Rubrixx Title */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+              Research Support Services
+            </h1>
+            <p className="text-stone-300 text-sm sm:text-base mt-3 max-w-2xl font-normal leading-relaxed">
+              Professional manuscript development, statistical data modeling, LaTeX formatting, and publication assistance in reputed Q1–Q4 Scopus, SCI, and IEEE journals.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          SECTION: OVERVIEW & 4 VALUE PILLARS
+          (Clean white background matching Rubrixx body)
+      =========================================== */}
+      <section className="py-14 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="max-w-3xl mb-12">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
+              Turn Your Research into Published Impact
+            </h2>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Rubrixx IT Solutions is the dedicated technology and scientific consulting partner helping PhD scholars, research fellows, and faculty members worldwide publish with academic integrity, methodological rigor, and zero-plagiarism compliance.
+            </p>
+          </div>
+
+          {/* 4 Pillars - Replaced cheap blue box logos with modern Rubrixx-themed cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="w-11 h-11 rounded-lg bg-orange-50 text-[#ea580c] flex items-center justify-center mb-4">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-gray-900 text-base mb-1.5">Quality Research Support</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Methodological rigor, structural coherence, and alignment with target journal aim and scope.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-100 text-[11px] font-bold text-[#611b45] flex items-center space-x-1">
+                <span>Q1–Q4 Benchmarked</span>
+              </div>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="w-11 h-11 rounded-lg bg-amber-50 text-[#f59e0b] flex items-center justify-center mb-4">
+                  <Target className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-gray-900 text-base mb-1.5">Subject Matter Expertise</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  PhD-level mentors and journal peer-reviewers across Computer Science, AI, Engineering, and Healthcare.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-100 text-[11px] font-bold text-[#611b45] flex items-center space-x-1">
+                <span>45+ Specialized Domains</span>
+              </div>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="w-11 h-11 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+                  <Award className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-gray-900 text-base mb-1.5">Ethical & Transparent</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Strict zero-plagiarism protocol. Verified Turnitin/iThenticate similarity reports (&lt;10%) included.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-100 text-[11px] font-bold text-emerald-600 flex items-center space-x-1">
+                <CheckCircle2 className="w-3.5 h-3.5 mr-1" />
+                <span>100% Originality Report</span>
+              </div>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="w-11 h-11 rounded-lg bg-pink-50 text-[#611b45] flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-gray-900 text-base mb-1.5">On-Time Delivery</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Structured milestone stages with weekly review syncs, meeting your university and conference deadlines.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-100 text-[11px] font-bold text-[#611b45] flex items-center space-x-1">
+                <span>Milestone Tracking</span>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          OFFICIAL ACADEMIC INDEXING & PUBLISHER LOGOS BAR
+      =========================================== */}
+      <div className="bg-[#fcfaf7] border-y border-stone-200/60 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-5">
+            <span className="text-[11px] font-extrabold text-gray-400 uppercase tracking-widest">
+              Indexed & Published Across Leading Global Scientific Databases
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3.5 items-center justify-center">
+            
+            {/* Scopus */}
+            <div className="brand-badge-card group">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded bg-[#ea580c] text-white flex items-center justify-center font-black text-xs">S</div>
+                <div className="text-left">
+                  <span className="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#ea580c] transition block leading-none">Scopus</span>
+                  <span className="text-[9px] font-semibold text-gray-400">Elsevier</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Web of Science */}
+            <div className="brand-badge-card group">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded bg-[#2563eb] text-white flex items-center justify-center text-xs">
+                  <i className="fa-solid fa-atom"></i>
+                </div>
+                <div className="text-left">
+                  <span className="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#2563eb] transition block leading-none">Web of Science</span>
+                  <span className="text-[9px] font-semibold text-gray-400">Clarivate</span>
+                </div>
+              </div>
+            </div>
+
+            {/* IEEE Xplore */}
+            <div className="brand-badge-card group">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded bg-[#0284c7] text-white flex items-center justify-center text-xs">
+                  <i className="fa-solid fa-bolt"></i>
+                </div>
+                <div className="text-left">
+                  <span className="text-xs font-black tracking-wide text-gray-800 group-hover:text-[#0284c7] transition block leading-none">IEEE Xplore</span>
+                  <span className="text-[9px] font-semibold text-gray-400">Digital Library</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Springer Nature */}
+            <div className="brand-badge-card group">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded bg-[#d97706] text-white flex items-center justify-center text-xs">
+                  <i className="fa-solid fa-compass"></i>
+                </div>
+                <div className="text-left">
+                  <span className="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#d97706] transition block leading-none">Springer</span>
+                  <span className="text-[9px] font-semibold text-gray-400">Nature Series</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Elsevier */}
+            <div className="brand-badge-card group">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded bg-[#c2410c] text-white flex items-center justify-center text-xs">
+                  <i className="fa-solid fa-tree"></i>
+                </div>
+                <div className="text-left">
+                  <span className="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#c2410c] transition block leading-none">Elsevier</span>
+                  <span className="text-[9px] font-semibold text-gray-400">ScienceDirect</span>
+                </div>
+              </div>
+            </div>
+
+            {/* PubMed */}
+            <div className="brand-badge-card group">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded bg-[#0d9488] text-white flex items-center justify-center text-xs">
+                  <Dna className="w-3.5 h-3.5" />
+                </div>
+                <div className="text-left">
+                  <span className="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#0d9488] transition block leading-none">PubMed</span>
+                  <span className="text-[9px] font-semibold text-gray-400">NLM / NIH</span>
+                </div>
+              </div>
+            </div>
+
+            {/* UGC-CARE */}
+            <div className="brand-badge-card group">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded bg-[#7c3aed] text-white flex items-center justify-center text-xs">
+                  <GraduationCap className="w-3.5 h-3.5" />
+                </div>
+                <div className="text-left">
+                  <span className="text-xs font-black tracking-tight text-gray-800 group-hover:text-[#7c3aed] transition block leading-none">UGC-CARE</span>
+                  <span className="text-[9px] font-semibold text-gray-400">Group I & II</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ==========================================
+          VISUAL CAPABILITIES SHOWCASE
+          (Real high-res photography matching 'About Us' cards)
+      =========================================== */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#ea580c] mb-1 block">
+              Academic Excellence Hub
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              Scientific Precision at Every Stage
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            
+            {/* Showcase 1: Research Analytics */}
+            <motion.div whileHover={{ y: -5 }} className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white group">
+              <div className="relative h-72 overflow-hidden">
+                <img 
+                  src="/assets/images/research-analytics.jpg" 
+                  alt="Computational Data Analytics Laboratory" 
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider bg-[#ea580c] px-2.5 py-1 rounded text-white inline-block mb-1">
+                    Data Analytics & AI
+                  </span>
+                  <h3 className="text-lg font-bold text-white leading-snug">
+                    Advanced Statistical Analysis & Machine Learning Modeling
+                  </h3>
+                </div>
+              </div>
+              <div className="p-6 text-xs text-gray-600 leading-relaxed">
+                Empirical justification, hypothesis testing, ANOVA, SEM, and 300+ DPI publication plots using SPSS, R, Python, and MATLAB with full source scripts included.
+              </div>
+            </motion.div>
+
+            {/* Showcase 2: Peer-Review Mentorship */}
+            <motion.div whileHover={{ y: -5 }} className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white group">
+              <div className="relative h-72 overflow-hidden">
+                <img 
+                  src="/assets/images/peer-review-mentorship.jpg" 
+                  alt="Editorial Mentorship and Peer Review" 
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider bg-[#611b45] px-2.5 py-1 rounded text-white inline-block mb-1">
+                    Editorial Desk
+                  </span>
+                  <h3 className="text-lg font-bold text-white leading-snug">
+                    Peer-Review Mentorship & LaTeX Precision
+                  </h3>
+                </div>
+              </div>
+              <div className="p-6 text-xs text-gray-600 leading-relaxed">
+                Line-by-line editorial scrutiny, native English flow, LaTeX typesetting in IEEE/Springer/Elsevier author styles, and decisive reviewer rebuttal strategies.
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          OUR SERVICES SECTION
+          (Exact Rubrixx 3-Column Services Card Grid from Screenshot 2!)
+      =========================================== */}
+      <section id="services" className="py-16 bg-[#fcfaf7] border-t border-stone-200/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+                Our Research Services
+              </h2>
+              <p className="text-gray-500 text-xs mt-1">End-to-end guidance tailored precisely to your manuscript requirements.</p>
+            </div>
+
+            {/* Category Filter Pills (Matching Screenshot 4: Plum & Yellow Pills) */}
+            <div className="flex flex-wrap gap-2 text-xs">
+              {[
+                { key: 'all', label: 'All Services' },
+                { key: 'writing', label: 'Research Writing' },
+                { key: 'data', label: 'Data Analysis' },
+                { key: 'editing', label: 'Editing & Polishing' },
+                { key: 'submission', label: 'Submission Support' },
+              ].map(tab => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveCategory(tab.key)}
+                  className={`px-4 py-2 rounded-full font-bold text-xs transition cursor-pointer ${
+                    activeCategory === tab.key 
+                      ? 'bg-[#611b45] text-white shadow-sm' 
+                      : 'bg-[#ffcc00] hover:bg-[#e6b800] text-black'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 3-Column Grid matching Screenshot 2 'Services' */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <AnimatePresence>
+              {filteredServices.map(service => (
+                <motion.div
+                  key={service.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition flex flex-col justify-between overflow-hidden"
+                >
+                  <div className="h-44 overflow-hidden relative">
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className={`absolute top-3 left-3 font-bold text-[10px] uppercase px-3 py-1 rounded-full shadow-sm bg-white/95 ${service.badgeColor}`}>
+                      {service.badge}
+                    </span>
+                  </div>
+
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-extrabold text-gray-900 text-base mb-2">{service.title}</h3>
+                      <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                        {service.description}
+                      </p>
+                      <ul className="text-xs space-y-1.5 text-gray-600 mb-5">
+                        {service.features.map((feat, idx) => (
+                          <li key={idx} className="flex items-center">
+                            <Check className="w-3.5 h-3.5 text-[#ea580c] mr-2 flex-shrink-0" />
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                      <span className="text-xs font-bold text-gray-900">{service.tier}</span>
+                      {/* Rubrixx signature 'Read More ->' in Plum / Wine color */}
+                      <a href="#contact" className="text-xs font-bold text-[#611b45] hover:text-[#ea580c] transition flex items-center space-x-1">
+                        <span>Read More</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          JOURNAL QUARTILE PRICING PLANS
+      =========================================== */}
+      <section id="pricing" className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="mb-10">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              Journal Quartile Pricing Plans
+            </h2>
+            <p className="text-gray-500 text-xs mt-1">
+              Transparent milestone pricing based on journal quartile scope. (Excludes journal APC).
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-stretch">
+            
+            {/* Guidance Note */}
+            <div className="bg-[#111e38] text-white p-6 rounded-2xl flex flex-col justify-between shadow-sm">
+              <div>
+                <span className="bg-[#ffcc00] text-black text-[10px] font-black px-2.5 py-0.5 rounded uppercase tracking-wider mb-3 inline-block">
+                  Guidance Note
+                </span>
+                <h3 className="text-lg font-bold mb-2 text-white">Choose the right package</h3>
+                <p className="text-xs text-stone-300 leading-relaxed mb-6">
+                  Pricing is structured around journal impact factor and the level of expert intervention required.
+                </p>
+                <div className="space-y-3 border-t border-stone-700/80 pt-4 text-xs">
+                  <div className="flex items-center space-x-2 text-white">
+                    <CheckCircle2 className="w-4 h-4 text-[#ffcc00]" />
+                    <span>Peer-Review Quality</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-white">
+                    <Lock className="w-4 h-4 text-[#ffcc00]" />
+                    <span>100% Confidentiality & NDA</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-white">
+                    <Clock className="w-4 h-4 text-[#ffcc00]" />
+                    <span>Timely Milestones</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-stone-700">
+                <a href="tel:+918087579068" className="text-xs text-[#ffcc00] hover:text-white font-bold flex items-center space-x-2">
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call +91 80875 79068</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Q1 Journals */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col overflow-hidden">
+              <div className="bg-[#611b45] text-white p-5 text-center">
+                <h4 className="font-extrabold text-base text-white">Q1 Journals</h4>
+                <p className="text-[11px] text-pink-200">Top-tier journals with highest impact</p>
+              </div>
+              <div className="p-5 flex-1 text-xs divide-y divide-gray-100">
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Full manuscript</span><span className="font-bold text-gray-900">₹60,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Review article</span><span className="font-bold text-gray-900">₹45,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Technical editing</span><span className="font-bold text-gray-900">₹20,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Data analysis</span><span className="font-bold text-gray-900">₹20,000 – 40k</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Journal submission</span><span className="font-bold text-gray-900">₹8,000</span></div>
+              </div>
+              <div className="bg-stone-50 p-5 border-t border-stone-100 mt-auto">
+                <div className="flex justify-between items-baseline mb-2">
+                  <span className="font-bold text-gray-900 text-xs">Complete Package</span>
+                  <span className="text-lg font-black text-[#ea580c]">₹75,000</span>
+                </div>
+                <a href="#contact" className="bg-[#ffcc00] hover:bg-[#e6b800] text-black font-extrabold text-xs w-full text-center py-2.5 rounded-md block uppercase tracking-wider">
+                  Select Q1
+                </a>
+              </div>
+            </div>
+
+            {/* Q2 Journals (Featured) */}
+            <div className="bg-white rounded-2xl border-2 border-[#ea580c] shadow-md flex flex-col overflow-hidden relative">
+              <div className="bg-[#ea580c] text-white p-5 text-center">
+                <h4 className="font-extrabold text-base text-white">Q2 Journals</h4>
+                <p className="text-[11px] text-orange-100">Well-respected journals with strong reputation</p>
+              </div>
+              <div className="p-5 flex-1 text-xs divide-y divide-gray-100">
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Full manuscript</span><span className="font-bold text-gray-900">₹40,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Review article</span><span className="font-bold text-gray-900">₹30,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Technical editing</span><span className="font-bold text-gray-900">₹15,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Data analysis</span><span className="font-bold text-gray-900">₹15,000 – 30k</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Journal submission</span><span className="font-bold text-gray-900">₹6,000</span></div>
+              </div>
+              <div className="bg-orange-50/70 p-5 border-t border-orange-100 mt-auto">
+                <div className="flex justify-between items-baseline mb-2">
+                  <span className="font-bold text-gray-900 text-xs">Complete Package</span>
+                  <span className="text-lg font-black text-[#ea580c]">₹55,000</span>
+                </div>
+                <a href="#contact" className="bg-[#ffcc00] hover:bg-[#e6b800] text-black font-extrabold text-xs w-full text-center py-2.5 rounded-md block uppercase tracking-wider">
+                  Select Q2
+                </a>
+              </div>
+            </div>
+
+            {/* Q3 Journals */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col overflow-hidden">
+              <div className="bg-stone-800 text-white p-5 text-center">
+                <h4 className="font-extrabold text-base text-white">Q3 Journals</h4>
+                <p className="text-[11px] text-stone-300">Reputed journals with good visibility</p>
+              </div>
+              <div className="p-5 flex-1 text-xs divide-y divide-gray-100">
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Full manuscript</span><span className="font-bold text-gray-900">₹25,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Review article</span><span className="font-bold text-gray-900">₹20,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Technical editing</span><span className="font-bold text-gray-900">₹10,000</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Data analysis</span><span className="font-bold text-gray-900">₹10,000 – 20k</span></div>
+                <div className="py-2 flex justify-between"><span className="text-gray-600">Journal submission</span><span className="font-bold text-gray-900">₹4,000</span></div>
+              </div>
+              <div className="bg-stone-50 p-5 border-t border-stone-100 mt-auto">
+                <div className="flex justify-between items-baseline mb-2">
+                  <span className="font-bold text-gray-900 text-xs">Complete Package</span>
+                  <span className="text-lg font-black text-stone-900">₹40,000</span>
+                </div>
+                <a href="#contact" className="bg-[#ffcc00] hover:bg-[#e6b800] text-black font-extrabold text-xs w-full text-center py-2.5 rounded-md block uppercase tracking-wider">
+                  Select Q3
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          5-STEP METHODOLOGY
+      =========================================== */}
+      <section id="process" className="py-16 bg-[#fcfaf7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              Our Simple 5-Step Process
+            </h2>
+            <p className="text-gray-500 text-xs mt-1">A structured roadmap ensuring transparency and publication success.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+            {[
+              { num: '1', title: 'Consultation', desc: 'Discuss scope and journal targets under strict mutual NDA.' },
+              { num: '2', title: 'Proposal & Quote', desc: 'Clear milestone roadmap and transparent pricing.' },
+              { num: '3', title: 'Research & Writing', desc: 'Expert drafting, analysis and weekly syncs.' },
+              { num: '4', title: 'Review & Revision', desc: 'Feedback incorporation and Turnitin report check.' },
+              { num: '5', title: 'Submission', desc: 'Portal upload and reviewer rebuttal support.' }
+            ].map(step => (
+              <div key={step.num} className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-[#611b45] text-white flex items-center justify-center font-black text-sm mb-3">
+                  {step.num}
+                </div>
+                <h4 className="font-bold text-xs text-gray-900 mb-1">{step.title}</h4>
+                <p className="text-[11px] text-gray-500 leading-normal">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          CONTACT SECTION: "Ready To Get Started ?"
+          (Exact recreation from Screenshot 1!)
+      =========================================== */}
+      <section id="contact" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Column: Direct Coordinates (Matching Screenshot 1) */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+                  Ready To Get Started ?
+                </h2>
+                <p className="text-gray-600 text-xs sm:text-sm mt-3 leading-relaxed max-w-lg">
+                  Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days, we will be happy to answer your questions.
+                </p>
+              </div>
+
+              <div className="space-y-6 pt-2">
+                {/* Our Address with Gold Globe Icon */}
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-50 text-[#f59e0b] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-gray-900 text-sm">Our Address:</h4>
+                    <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">
+                      Om Paradise ,Block-B , TC Colony, Vikas Nagar, Dehu Road, Maharashtra 412101
+                    </p>
+                  </div>
+                </div>
+
+                {/* Our Mailbox with Gold Envelope Icon */}
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-50 text-[#f59e0b] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-gray-900 text-sm">Our Mailbox:</h4>
+                    <a href="mailto:info@rubrixx.com" className="text-xs text-gray-600 hover:text-[#ea580c] transition mt-0.5 block">
+                      info@rubrixx.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Our Phone with Gold Phone Icon */}
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-50 text-[#f59e0b] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-extrabold text-gray-900 text-sm">Our Phone:</h4>
+                    <a href="tel:+918087579068" className="text-xs text-gray-600 hover:text-[#ea580c] transition mt-0.5 block">
+                      +918087579068
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Warm Sunset Gradient Form Card (Exact recreation from Screenshot 1!) */}
+            <div className="lg:col-span-6">
+              <div className="bg-gradient-to-r from-[#6b1d4d] via-[#b81c47] to-[#f59e0b] p-8 sm:p-10 rounded-2xl shadow-xl text-white">
+                <h3 className="text-2xl font-extrabold text-white mb-6">
+                  Ready To Get Started ?
+                </h3>
+
+                {formSubmitted ? (
+                  <div className="bg-white/20 backdrop-blur-md p-6 rounded-xl text-center">
+                    <CheckCircle2 className="w-10 h-10 text-white mx-auto mb-2" />
+                    <h4 className="font-bold text-base">Inquiry Submitted!</h4>
+                    <p className="text-xs text-white/90 mt-1">Our academic advisor will get back to you within 24 hours.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleFormSubmit} className="space-y-4">
+                    <div>
+                      <input 
+                        type="text" 
+                        required
+                        placeholder="Name" 
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        className="w-full bg-white/25 border-none placeholder-white/80 text-white text-xs px-4 py-3.5 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                      />
+                    </div>
+                    <div>
+                      <input 
+                        type="email" 
+                        required
+                        placeholder="Email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        className="w-full bg-white/25 border-none placeholder-white/80 text-white text-xs px-4 py-3.5 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                      />
+                    </div>
+                    <div>
+                      <input 
+                        type="tel" 
+                        required
+                        placeholder="Phone Number" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        className="w-full bg-white/25 border-none placeholder-white/80 text-white text-xs px-4 py-3.5 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                      />
+                    </div>
+                    <div>
+                      <textarea 
+                        rows={4}
+                        required
+                        placeholder="Message" 
+                        value={formData.message}
+                        onChange={(e) => setFormData({...formData, message: e.target.value})}
+                        className="w-full bg-white/25 border-none placeholder-white/80 text-white text-xs px-4 py-3.5 rounded-md focus:outline-none focus:ring-2 focus:ring-white resize-none"
+                      ></textarea>
+                    </div>
+
+                    <button 
+                      type="submit" 
+                      className="w-full bg-white text-gray-900 hover:bg-stone-100 font-extrabold text-xs uppercase py-3.5 rounded-md shadow-md transition tracking-wider mt-2"
+                    >
+                      Submit Request
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          EXACT RUBRIXX SIGNATURE FOOTER
+          (Plum/Wine Theme matching all 5 screenshots!)
+      =========================================== */}
+      <footer className="bg-[#611b45] text-white text-xs pt-16 pb-10 border-t border-[#732353] mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 pb-12 border-b border-[#732353]">
+            
+            {/* Col 1: About Us with 3 Yellow Circular Social Icons */}
+            <div className="space-y-4">
+              <h4 className="text-sm font-extrabold text-white">About Us</h4>
+              <div className="flex items-center space-x-3 pt-1">
+                {/* Circular yellow outline Facebook */}
+                <a 
+                  href="https://www.facebook.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-9 h-9 rounded-full border-2 border-[#ffcc00] text-[#ffcc00] hover:bg-[#ffcc00] hover:text-[#611b45] flex items-center justify-center transition"
+                  title="Facebook"
+                >
+                  <i className="fab fa-facebook-f text-xs"></i>
+                </a>
+
+                {/* Circular yellow outline Twitter */}
+                <a 
+                  href="https://twitter.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-9 h-9 rounded-full border-2 border-[#ffcc00] text-[#ffcc00] hover:bg-[#ffcc00] hover:text-[#611b45] flex items-center justify-center transition"
+                  title="Twitter"
+                >
+                  <i className="fab fa-twitter text-xs"></i>
+                </a>
+
+                {/* Circular yellow outline Instagram */}
+                <a 
+                  href="https://www.instagram.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-9 h-9 rounded-full border-2 border-[#ffcc00] text-[#ffcc00] hover:bg-[#ffcc00] hover:text-[#611b45] flex items-center justify-center transition"
+                  title="Instagram"
+                >
+                  <i className="fab fa-instagram text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Col 2: Company */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-extrabold text-white">Company</h4>
+              <ul className="space-y-2 text-stone-200 text-xs">
+                <li><a href="https://www.rubrixx.com/about-us.php" className="hover:text-[#ffcc00] transition">About Us</a></li>
+                <li><a href="https://www.rubrixx.com/contact-us.php" className="hover:text-[#ffcc00] transition">Contact Us</a></li>
+                <li><a href="https://www.rubrixx.com/clients.php" className="hover:text-[#ffcc00] transition">Clients</a></li>
+              </ul>
+            </div>
+
+            {/* Col 3: Services */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-extrabold text-white">Services</h4>
+              <ul className="space-y-2 text-stone-200 text-xs">
+                <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Android-Development" className="hover:text-[#ffcc00] transition">Android Development</a></li>
+                <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Salesforce-Development" className="hover:text-[#ffcc00] transition">Salesforce Development</a></li>
+                <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Website-Development" className="hover:text-[#ffcc00] transition">Website Development</a></li>
+                <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=AI-and-ML-Services" className="hover:text-[#ffcc00] transition">AI And ML Services</a></li>
+                <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Cloud-Migration-Services" className="hover:text-[#ffcc00] transition">Cloud Migration Services</a></li>
+                <li><a href="https://www.rubrixx.com/servicedetails.php?seriid=Workforce-Management" className="hover:text-[#ffcc00] transition">Workforce Management</a></li>
+                <li><a href="#services" className="text-[#ffcc00] font-semibold hover:underline">Research Services</a></li>
+              </ul>
+            </div>
+
+            {/* Col 4: Policy */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-extrabold text-white">Policy</h4>
+              <ul className="space-y-2 text-stone-200 text-xs">
+                <li><a href="#pricing" className="hover:text-[#ffcc00] transition">Pricing and plans</a></li>
+                <li><a href="https://www.rubrixx.com/terms.php" className="hover:text-[#ffcc00] transition">Terms of Service</a></li>
+                <li><a href="https://www.rubrixx.com/faq.php" className="hover:text-[#ffcc00] transition">Help & FAQ</a></li>
+              </ul>
+            </div>
+
+            {/* Col 5: We're Hiring */}
+            <div className="space-y-3">
+              <h4 className="text-sm font-extrabold text-white">We're Hiring</h4>
+              <p className="text-xs text-stone-200 leading-relaxed">
+                Interested in joining the our team?
+              </p>
+              <a 
+                href="https://www.rubrixx.com/careers.php" 
+                className="inline-flex items-center space-x-1.5 text-sm font-extrabold text-[#ffcc00] hover:text-white transition pt-1"
+              >
+                <span>Careers</span>
+                <i className="fa-solid fa-circle-arrow-right text-xs"></i>
+              </a>
+            </div>
+
+          </div>
+
+          {/* Centered Copyright matching Screenshot 1-5 */}
+          <div className="pt-8 text-center text-xs text-stone-300">
+            © Rubrixx IT Solutions
+          </div>
+
+        </div>
+      </footer>
+
+    </div>
+  );
+}
