@@ -143,7 +143,7 @@ export default function App() {
       id: 1,
       quote: "Excellent support in converting my research into a high-quality manuscript. The team's subject knowledge and professionalism are outstanding.",
       name: "Dr. Ananya S.",
-      role: "PhD Scholar, XXX (Delhi)",
+      role: "PhD Scholar",
       image: "/assets/images/client-ananya.jpg",
       badge: "Q1 IEEE Published"
     },
@@ -151,7 +151,7 @@ export default function App() {
       id: 2,
       quote: "Their data analysis and writing support significantly improved the quality of my paper. I highly recommend their services.",
       name: "Prof. R. Kumar",
-      role: "Associate Professor, XXX",
+      role: "Associate Professor",
       image: "/assets/images/client-kumar.jpg",
       badge: "Elsevier Published"
     },
@@ -159,7 +159,7 @@ export default function App() {
       id: 3,
       quote: "Professional, responsive and reliable. The manuscript was well-structured and submission-ready. Great experience!",
       name: "Dr. Meeta T.",
-      role: "Faculty, XXX",
+      role: "Faculty",
       image: "/assets/images/client-meeta.jpg",
       badge: "Springer Nature"
     },
@@ -167,7 +167,7 @@ export default function App() {
       id: 4,
       quote: "The point-by-point rebuttal strategy addressed every difficult query from peer reviewers. The manuscript was accepted within four months.",
       name: "Dr. Priya Nair",
-      role: "Assistant Professor, NIT",
+      role: "Assistant Professor",
       image: "/assets/images/client-ananya.jpg",
       badge: "Scopus Q1 Indexed"
     },
@@ -175,7 +175,7 @@ export default function App() {
       id: 5,
       quote: "Rigorous statistical analysis using Python & SPSS with publication-grade figures. Exceptional attention to scientific detail.",
       name: "Dr. S. Venkatesh",
-      role: "Postdoctoral Researcher, IISc",
+      role: "Postdoctoral Researcher",
       image: "/assets/images/client-kumar.jpg",
       badge: "SCI Impact Factor 4.8"
     }
